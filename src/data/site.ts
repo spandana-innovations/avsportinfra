@@ -31,7 +31,7 @@ export const site = {
 export const whatsappLink = (prefill = '') =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMsg + prefill)}`;
 
-export type NavItem = { label: string; href: string; children?: NavItem[] };
+export type NavItem = { label: string; href: string; icon?: string; children?: NavItem[] };
 
 export const services = [
   {
@@ -299,7 +299,7 @@ export const whyUs = [
 ];
 
 export const mainNav: NavItem[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/', icon: 'home' },
   { label: 'About', href: '/about' },
   {
     label: 'Services',
@@ -312,6 +312,6 @@ export const mainNav: NavItem[] = [
     children: solutions.map((s) => ({ label: s.title, href: `/solutions/${s.slug}` })),
   },
   { label: 'Projects', href: '/projects' },
-  { label: 'Resources', href: '/resources' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact', icon: 'phone' },
 ];

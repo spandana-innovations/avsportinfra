@@ -1,0 +1,128 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+import RemoteImage from '../../components/RemoteImage.astro';
+import { posts } from '../../data/blog';
+
+export function getStaticPaths() {
+  return posts.map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
+}
+const { post } = Astro.props;
+const related = posts.filter((p) => p.slug !== post.slug && p.category === post.category);
+const more = (related.length ? related : posts.filter((p) => p.slug !== post.slug)).slice(0, 3);
+const fmt = (d: string) =>
+  new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  datePublished: post.date,
+  author: { '@type': 'Organization', name: 'AV Sports and Infrastructure' },
+  publisher: { '@id': 'https://www.avsportsinfra.com/#organization' },
+  mainEntityOfPage: `https://www.avsportsinfra.com/blog/${post.slug}`,
+};
+const breadcrumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfra.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.avsportsinfra.com/blog' },
+    { '@type': 'ListItem', position: 3, name: post.title },
+  ],
+};
+---
+<Base
+  title={`${post.title} | AV Sports and Infrastructure`}
+  description={post.excerpt}
+  path={`/blog/${post.slug}`}
+  jsonLd={[articleLd, breadcrumb]}
+>
+  <article>
+    <header class="post-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span> <span class="current">{post.category}</span></nav>
+        <span class="pill" data-reveal>{post.category}</span>
+        <h1 class="h-display" data-reveal data-delay="1">{post.title}</h1>
+        <div class="post-meta" data-reveal data-delay="2"><span>{fmt(post.date)}</span><span>·</span><span>{post.readMins} min read</span></div>
+      </div>
+    </header>
+
+    <div class="container post-wrap">
+      <div class="post-cover" data-reveal>
+        <RemoteImage id={post.image} alt={post.title} w={1040} h={560} eager={true} />
+      </div>
+
+      <div class="post-body">
+        <p class="post-lede" data-reveal>{post.excerpt}</p>
+        {post.sections.map((s) => (
+          <section class="post-section" data-reveal>
+            <h2>{s.heading}</h2>
+            {s.body.map((para) => <p>{para}</p>)}
+          </section>
+        ))}
+
+        <div class="post-cta" data-reveal>
+          <div>
+            <h3>Planning a project like this?</h3>
+            <p>Get a layout and a fixed quote from the team that builds them.</p>
+          </div>
+          <a href="/contact" class="btn btn-primary">Get a Free Quotation</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="section related">
+      <div class="container">
+        <h2 class="section-title center" data-reveal>More from the blog</h2>
+        <div class="grid cols-3">
+          {more.map((p, i) => (
+            <a class="card blog-card" href={`/blog/${p.slug}`} data-reveal data-delay={i % 3}>
+              <div class="bc-img"><RemoteImage id={p.image} alt={p.title} w={520} h={330} /><span class="bc-cat">{p.category}</span></div>
+              <div class="bc-body">
+                <h3>{p.title}</h3>
+                <span class="arrow">Read <Icon name="arrow" size={16} /></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <CTABand />
+</Base>
+
+<style>
+  .post-hero { position: relative; color: #fff; padding-block: clamp(2.4rem, 5vw, 3.6rem); background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); overflow: hidden; }
+  :root[data-theme='dark'] .post-hero { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .crumbs { font-size: 0.85rem; color: #bfdcc5; margin-bottom: 1.2rem; }
+  .crumbs a:hover { color: var(--grass-300); }
+  .crumbs .current { color: #fff; }
+  .post-hero .pill { background: rgba(255,255,255,0.14); color: #cdebc0; margin-bottom: 1rem; }
+  .post-hero h1 { color: #fff; max-width: 22ch; margin-bottom: 1rem; font-size: clamp(1.9rem, 4.5vw, 3.2rem); }
+  .post-meta { display: flex; gap: 0.5rem; color: #cfe6d4; font-size: 0.9rem; font-weight: 600; }
+
+  .post-wrap { max-width: 820px; }
+  .post-cover { margin-top: clamp(-2rem, -4vw, -3rem); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); position: relative; aspect-ratio: 16 / 9; }
+  .post-body { padding-top: clamp(2rem, 4vw, 3rem); }
+  .post-lede { font-size: clamp(1.1rem, 1.8vw, 1.3rem); line-height: 1.6; color: var(--text); font-weight: 500; margin-bottom: 2rem; }
+  .post-section { margin-bottom: 1.8rem; }
+  .post-section h2 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); margin-bottom: 0.7rem; }
+  .post-section p { color: var(--text-soft); margin-bottom: 0.9rem; line-height: 1.75; }
+
+  .post-cta { margin: 2.5rem 0 1rem; padding: clamp(1.4rem, 3vw, 2rem); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .post-cta h3 { text-transform: none; margin-bottom: 0.25rem; }
+  .post-cta p { color: var(--text-soft); }
+
+  .related { background: var(--surface-2); margin-top: 2rem; }
+  .related .section-title { margin-bottom: 2rem; }
+  .blog-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+  .bc-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  .bc-img :global(.remote-img) { transition: transform 0.6s var(--ease); }
+  .blog-card:hover .bc-img :global(.remote-img) { transform: scale(1.05); }
+  .bc-cat { position: absolute; left: 12px; top: 12px; background: color-mix(in srgb, var(--forest) 84%, transparent); color: var(--grass-300); font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; padding: 0.3rem 0.65rem; border-radius: 999px; backdrop-filter: blur(4px); }
+  .bc-body { padding: 1.2rem 1.3rem 1.4rem; }
+  .blog-card h3 { font-size: 1.05rem; text-transform: none; line-height: 1.3; margin-bottom: 0.6rem; }
+</style>

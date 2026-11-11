@@ -1,0 +1,130 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+import RemoteImage from '../../components/RemoteImage.astro';
+import { posts, byDateDesc } from '../../data/blog';
+
+const today = new Date().toISOString().slice(0, 10);
+const published = byDateDesc.filter((p) => p.date <= today);
+const upcoming = posts.filter((p) => p.date > today).sort((a, b) => a.date.localeCompare(b.date));
+const fmt = (d: string) =>
+  new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+const blogLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'AV Sports and Infrastructure Blog',
+  url: 'https://www.avsportsinfra.com/blog',
+  blogPost: published.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.title,
+    datePublished: p.date,
+    url: `https://www.avsportsinfra.com/blog/${p.slug}`,
+  })),
+};
+---
+<Base
+  title="Blog: Sports Infrastructure Guides, Costs & Insights"
+  description="Guides and insights on football turf, courts, running tracks and turnkey sports facilities — costs, dimensions and how to plan your build. From AV Sports and Infrastructure."
+  path="/blog"
+  jsonLd={blogLd}
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="book" size={15} /> The AV Journal</p>
+      <h1 class="h-display" data-reveal data-delay="1">Blog &amp; Insights</h1>
+      <p class="lead" data-reveal data-delay="2">Costs, dimensions, surface choices and planning guides for sports facilities — written by the team that builds them. New articles every month.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {published.length > 0 && (
+        <>
+          <div class="section-head" data-reveal><p class="eyebrow">Latest</p><h2 class="section-title">Published articles</h2></div>
+          <div class="grid cols-3 blog-grid">
+            {published.map((p, i) => (
+              <a class="card blog-card" href={`/blog/${p.slug}`} data-reveal data-delay={i % 3}>
+                <div class="bc-img"><RemoteImage id={p.image} alt={p.title} w={640} h={400} /><span class="bc-cat">{p.category}</span></div>
+                <div class="bc-body">
+                  <div class="bc-meta"><span>{fmt(p.date)}</span><span>·</span><span>{p.readMins} min read</span></div>
+                  <h3>{p.title}</h3>
+                  <p>{p.excerpt}</p>
+                  <span class="arrow">Read article <Icon name="arrow" size={16} /></span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
+
+      {upcoming.length > 0 && (
+        <>
+          <div class="section-head coming-head" data-reveal><p class="eyebrow">Content Calendar</p><h2 class="section-title">Coming soon</h2><p class="lead">We publish two new articles a month. Here's what's scheduled next.</p></div>
+          <div class="grid cols-3 blog-grid">
+            {upcoming.map((p, i) => (
+              <article class="card blog-card upcoming" data-reveal data-delay={i % 3} data-date={p.date} data-href={`/blog/${p.slug}`}>
+                <div class="bc-img"><RemoteImage id={p.image} alt={p.title} w={640} h={400} /><span class="bc-cat">{p.category}</span><span class="bc-sched">Scheduled</span></div>
+                <div class="bc-body">
+                  <div class="bc-meta"><span class="bc-when">Publishing {fmt(p.date)}</span></div>
+                  <h3>{p.title}</h3>
+                  <p>{p.excerpt}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+
+  <CTABand heading="Prefer to just ask an expert?" sub="Skip the reading — tell us your project and we'll advise on surface, size and cost." />
+
+  <script is:inline>
+    // Auto-promote scheduled articles once their publish date passes — so the
+    // blog keeps "publishing" over time even between deploys.
+    (function () {
+      var now = new Date().toISOString().slice(0, 10);
+      document.querySelectorAll('.blog-card.upcoming').forEach(function (el) {
+        if (el.getAttribute('data-date') <= now) {
+          var href = el.getAttribute('data-href');
+          el.classList.remove('upcoming');
+          el.classList.add('just-live');
+          var sched = el.querySelector('.bc-sched'); if (sched) sched.textContent = 'New';
+          var when = el.querySelector('.bc-when'); if (when) when.textContent = 'Just published';
+          // make the whole card a link
+          el.style.cursor = 'pointer';
+          el.addEventListener('click', function () { if (href) location.href = href; });
+        }
+      });
+    })();
+  </script>
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 64ch; }
+
+  .blog-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+  .bc-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  .bc-img :global(.remote-img) { transition: transform 0.6s var(--ease); }
+  .blog-card:hover .bc-img :global(.remote-img) { transform: scale(1.05); }
+  .bc-cat { position: absolute; left: 12px; top: 12px; background: color-mix(in srgb, var(--forest) 84%, transparent); color: var(--grass-300); font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; padding: 0.3rem 0.65rem; border-radius: 999px; backdrop-filter: blur(4px); }
+  .bc-sched { position: absolute; right: 12px; top: 12px; background: rgba(0,0,0,0.5); color: #fff; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; padding: 0.3rem 0.6rem; border-radius: 999px; backdrop-filter: blur(4px); }
+  .bc-body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+  .bc-meta { display: flex; gap: 0.5rem; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 600; }
+  .bc-when { color: var(--grass-600); }
+  :root[data-theme='dark'] .bc-when { color: var(--grass-300); }
+  .blog-card h3 { font-size: 1.15rem; text-transform: none; line-height: 1.25; margin-bottom: 0.5rem; }
+  .blog-card p { color: var(--text-soft); font-size: 0.95rem; flex: 1; }
+  .upcoming { opacity: 0.92; }
+  .upcoming .bc-img :global(.remote-img) { filter: saturate(0.9); }
+  .coming-head { margin-top: 3.5rem; }
+</style>

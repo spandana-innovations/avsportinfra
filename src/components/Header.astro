@@ -1,23 +1,29 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { mainNav, whatsappLink } from '../data/site';
+import { mainNav } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
 ---
 <header class="site-header" id="site-header">
   <div class="container bar">
     <a href="/" class="brand" aria-label="AV Sports and Infrastructure — home">
-      <Logo height={44} />
+      <Logo height={60} />
     </a>
 
     <nav class="desktop-nav" aria-label="Primary">
       <ul>
         {mainNav.map((item) => (
           <li class={item.children ? 'has-children' : ''}>
-            <a href={item.href} class={isActive(item.href) ? 'active' : ''} aria-current={isActive(item.href) ? 'page' : undefined}>
-              {item.label}{item.children && <Icon name="chevron" size={15} class="chev" />}
-            </a>
+            {item.icon && !item.children ? (
+              <a href={item.href} class={`nav-ic ${isActive(item.href) ? 'active' : ''}`} title={item.label} aria-label={item.label} aria-current={isActive(item.href) ? 'page' : undefined}>
+                <Icon name={item.icon} size={21} />
+              </a>
+            ) : (
+              <a href={item.href} class={isActive(item.href) ? 'active' : ''} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}{item.children && <Icon name="chevron" size={15} class="chev" />}
+              </a>
+            )}
             {item.children && (
               <div class="dropdown">
                 <ul>
@@ -37,9 +43,6 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         <Icon name="sun" size={20} class="i-sun" />
         <Icon name="moon" size={20} class="i-moon" />
       </button>
-      <a href={whatsappLink()} class="btn btn-wa wa-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <Icon name="whatsapp" size={18} /><span>WhatsApp</span>
-      </a>
       <a href="/contact" class="btn btn-primary quote-btn">Get a Quotation</a>
       <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
         <Icon name="menu" size={26} />
@@ -63,7 +66,6 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
         ))}
       </ul>
       <div class="drawer-cta">
-        <a href={whatsappLink()} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Chat on WhatsApp</a>
         <a href="/contact" class="btn btn-primary">Get a Free Quotation</a>
       </div>
     </nav>
@@ -73,8 +75,8 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <style>
   .site-header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease); }
   .site-header.scrolled { border-bottom-color: var(--border); box-shadow: var(--shadow); }
-  .bar { display: flex; align-items: center; gap: 1.2rem; min-height: 76px; }
-  .site-header.scrolled .bar { min-height: 64px; }
+  .bar { display: flex; align-items: center; gap: 1.2rem; min-height: 88px; }
+  .site-header.scrolled .bar { min-height: 74px; }
   .bar { transition: min-height 0.3s var(--ease); }
   .brand { flex-shrink: 0; }
 
@@ -85,6 +87,8 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
   :root[data-theme='dark'] .desktop-nav a:hover { color: var(--grass-300); }
   .desktop-nav a.active { color: var(--grass-600); }
   :root[data-theme='dark'] .desktop-nav a.active { color: var(--grass-300); }
+  .nav-ic { width: 42px; height: 42px; justify-content: center; border-radius: 12px; border: 1px solid var(--border); color: var(--text); }
+  .nav-ic:hover { border-color: var(--grass); }
   .chev { opacity: 0.6; transition: transform 0.2s; }
   .has-children { position: relative; }
   .has-children:hover .chev { transform: rotate(180deg); }
