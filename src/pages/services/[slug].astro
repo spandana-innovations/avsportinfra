@@ -4,7 +4,7 @@ import Icon from '../../components/Icon.astro';
 import CTABand from '../../components/CTABand.astro';
 import RemoteImage from '../../components/RemoteImage.astro';
 import { services, whatsappLink } from '../../data/site';
-import { serviceImages } from '../../data/images';
+import { serviceImages, u } from '../../data/images';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
@@ -47,7 +47,7 @@ const breadcrumb = {
 >
   <!-- Page hero -->
   <section class="svc-hero">
-    <div class="svc-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="svc-hero-bg" aria-hidden="true"><img class="hero-fade" src={u(imgs[0], 1600, 700)} alt="" /><div class="hero-glow"></div></div>
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/">Home</a> <span>/</span> <a href="/services">Services</a> <span>/</span> <span class="current">{service.title}</span>

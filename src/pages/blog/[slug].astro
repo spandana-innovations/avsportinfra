@@ -4,6 +4,7 @@ import Icon from '../../components/Icon.astro';
 import CTABand from '../../components/CTABand.astro';
 import RemoteImage from '../../components/RemoteImage.astro';
 import { posts } from '../../data/blog';
+import { u } from '../../data/images';
 
 export function getStaticPaths() {
   return posts.map((p) => ({ params: { slug: p.slug }, props: { post: p } }));
@@ -41,6 +42,7 @@ const breadcrumb = {
 >
   <article>
     <header class="post-hero">
+      <img class="hero-fade" src={u(post.image, 1600, 700)} alt="" />
       <div class="container">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/blog">Blog</a> <span>/</span> <span class="current">{post.category}</span></nav>
         <span class="pill" data-reveal>{post.category}</span>
@@ -96,6 +98,7 @@ const breadcrumb = {
 
 <style>
   .post-hero { position: relative; color: #fff; padding-block: clamp(2.4rem, 5vw, 3.6rem); background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); overflow: hidden; }
+  .post-hero .container { position: relative; z-index: 1; }
   :root[data-theme='dark'] .post-hero { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
   .crumbs { font-size: 0.85rem; color: #bfdcc5; margin-bottom: 1.2rem; }
   .crumbs a:hover { color: var(--grass-300); }

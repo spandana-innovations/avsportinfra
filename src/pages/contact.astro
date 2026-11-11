@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import { site, services, whatsappLink } from '../data/site';
+import { serviceImages, u } from '../data/images';
 ---
 <Base
   title="Contact AV Sports and Infrastructure | Get a Free Quotation"
@@ -9,7 +10,7 @@ import { site, services, whatsappLink } from '../data/site';
   path="/contact"
 >
   <section class="page-hero slim">
-    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="page-hero-bg" aria-hidden="true"><img class="hero-fade" src={u(serviceImages['pickleball-court'][0], 1600, 700)} alt="" /><div class="hero-glow"></div></div>
     <div class="container">
       <p class="pill" data-reveal><Icon name="phone" size={15} /> Let's Talk</p>
       <h1 class="h-display" data-reveal data-delay="1">Get a Free Quotation</h1>

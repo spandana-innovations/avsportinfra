@@ -1,16 +1,27 @@
 ---
-interface Props { height?: number; variant?: 'horizontal' | 'stacked'; class?: string; }
-const { height = 46, variant = 'horizontal', class: cls = '' } = Astro.props;
+interface Props { height?: number; variant?: 'horizontal' | 'stacked'; class?: string; onDark?: boolean; }
+const { height = 46, variant = 'horizontal', class: cls = '', onDark = false } = Astro.props;
 const light = `/logos/${variant}-light-t.png`;
 const dark = `/logos/${variant}-dark-t.png`;
+const alt = 'AV Sports and Infrastructure — Best Driven Turfs & Sports Structures';
+const w = variant === 'horizontal' ? 790 : 800;
+const h = variant === 'horizontal' ? 155 : 525;
 ---
 <span class={`logo ${cls}`} style={`--logo-h:${height}px`}>
-  <img class="logo-light" src={light} alt="AV Sports and Infrastructure — Best Driven Turfs & Sports Structures" width={variant === 'horizontal' ? 790 : 800} height={variant === 'horizontal' ? 155 : 525} loading="eager" />
-  <img class="logo-dark" src={dark} alt="AV Sports and Infrastructure — Best Driven Turfs & Sports Structures" width={variant === 'horizontal' ? 790 : 800} height={variant === 'horizontal' ? 155 : 525} loading="eager" />
+  {onDark ? (
+    <img src={dark} alt={alt} width={w} height={h} loading="eager" />
+  ) : (
+    <>
+      <img class="logo-light" src={light} alt={alt} width={w} height={h} loading="eager" />
+      <img class="logo-dark" src={dark} alt={alt} width={w} height={h} loading="eager" />
+    </>
+  )}
 </span>
 <style>
   .logo { display: inline-flex; align-items: center; line-height: 0; }
-  .logo img { height: var(--logo-h); width: auto; }
+  /* object-fit:contain + max-width:100% keeps the lockup from distorting when a
+     narrow container clamps its width (the global `img{max-width:100%}` reset) */
+  .logo img { height: var(--logo-h); width: auto; max-width: 100%; object-fit: contain; }
   .logo-dark { display: none; }
   :global(:root[data-theme='dark']) .logo-light { display: none; }
   :global(:root[data-theme='dark']) .logo-dark { display: inline; }

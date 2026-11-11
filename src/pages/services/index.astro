@@ -4,7 +4,7 @@ import Icon from '../../components/Icon.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import CTABand from '../../components/CTABand.astro';
 import { services } from '../../data/site';
-import { serviceImages } from '../../data/images';
+import { serviceImages, u } from '../../data/images';
 ---
 <Base
   title="Sports Infrastructure Services in India"
@@ -12,7 +12,7 @@ import { serviceImages } from '../../data/images';
   path="/services"
 >
   <section class="page-hero">
-    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="page-hero-bg" aria-hidden="true"><img class="hero-fade" src={u(serviceImages['football-turf'][0], 1600, 700)} alt="" /><div class="hero-glow"></div></div>
     <div class="container">
       <p class="pill" data-reveal><Icon name="layers" size={15} /> Full-Service Sports Builder</p>
       <h1 class="h-display" data-reveal data-delay="1">Complete Sports Infrastructure Services</h1>

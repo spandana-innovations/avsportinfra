@@ -8,7 +8,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <header class="site-header" id="site-header">
   <div class="container bar">
     <a href="/" class="brand" aria-label="AV Sports and Infrastructure — home">
-      <Logo height={104} />
+      <Logo height={52} />
     </a>
 
     <nav class="desktop-nav" aria-label="Primary">
@@ -50,33 +50,35 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     </div>
   </div>
 
-  <!-- Mobile drawer -->
-  <div class="mobile-drawer" id="mobile-drawer" hidden>
-    <nav aria-label="Mobile">
-      <p class="drawer-label">Menu</p>
-      <ul>
-        {mainNav.map((item) => (
-          <li>
-            <a href={item.href} class={isActive(item.href) ? 'active' : ''}>
-              <span class="mi-label">{item.icon && <Icon name={item.icon} size={19} />}{item.label}</span>
-              <Icon name="arrow" size={18} class="mi-arrow" />
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div class="drawer-cta">
-        <a href="/contact" class="btn btn-primary btn-lg">Get a Free Quotation</a>
-      </div>
-    </nav>
-  </div>
 </header>
+
+<!-- Mobile drawer: kept OUTSIDE <header> so the header's sticky stacking context
+     doesn't trap it beneath the full-screen backdrop (which blocked taps). -->
+<div class="mobile-drawer" id="mobile-drawer" hidden>
+  <nav aria-label="Mobile">
+    <p class="drawer-label">Menu</p>
+    <ul>
+      {mainNav.map((item) => (
+        <li>
+          <a href={item.href} class={isActive(item.href) ? 'active' : ''}>
+            <span class="mi-label">{item.icon && <Icon name={item.icon} size={19} />}{item.label}</span>
+            <Icon name="arrow" size={18} class="mi-arrow" />
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="drawer-cta">
+      <a href="/contact" class="btn btn-primary btn-lg">Get a Free Quotation</a>
+    </div>
+  </nav>
+</div>
 
 <style>
   .site-header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease); }
   .site-header.scrolled { border-bottom-color: var(--border); box-shadow: var(--shadow); }
-  .bar { display: flex; align-items: center; gap: 1.2rem; min-height: 124px; }
-  .site-header.scrolled .bar { min-height: 100px; }
-  @media (max-width: 1024px) { .bar { min-height: 76px; } .site-header.scrolled .bar { min-height: 68px; } }
+  .bar { display: flex; align-items: center; gap: 1.2rem; min-height: 78px; }
+  .site-header.scrolled .bar { min-height: 66px; }
+  @media (max-width: 1024px) { .bar { min-height: 64px; } .site-header.scrolled .bar { min-height: 58px; } }
   .bar { transition: min-height 0.3s var(--ease); }
   .brand { flex-shrink: 0; }
 
@@ -104,8 +106,8 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
   .header-actions { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.4rem; }
   .quote-btn { padding: 0.55rem 1.2rem; font-size: 0.82rem; white-space: nowrap; }
   /* Big brand logo (104px via prop), scaled down on smaller screens */
-  @media (max-width: 1024px) { .brand :global(.logo img) { height: 58px !important; } }
-  @media (max-width: 560px) { .brand :global(.logo img) { height: 46px !important; } }
+  @media (max-width: 1024px) { .brand :global(.logo img) { height: 42px !important; } }
+  @media (max-width: 560px) { .brand :global(.logo img) { height: 38px !important; } }
   .theme-toggle { width: 42px; height: 42px; border: none; background: transparent; color: var(--text); display: grid; place-items: center; transition: color 0.2s, transform 0.2s; }
   .theme-toggle:hover { color: var(--grass-600); transform: translateY(-1px); }
   :root[data-theme='dark'] .theme-toggle:hover { color: var(--grass-300); }
@@ -123,6 +125,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     .desktop-nav, .wa-btn span { display: none; }
     .wa-btn { padding: 0.7rem; }
     .quote-btn { display: none; }
+    .header-actions { margin-left: auto; gap: 0.25rem; }
     .menu-btn { display: grid; }
     .mobile-drawer { display: block; position: fixed; inset: 0 0 0 auto; width: min(86vw, 360px); background: var(--bg-elev); border-left: 1px solid var(--border); box-shadow: var(--shadow-lg); padding: 1.5rem 1.3rem 2rem; overflow-y: auto; transform: translateX(100%); transition: transform 0.35s var(--ease); z-index: 130; top: 0; height: 100dvh; }
     .mobile-drawer.open { transform: translateX(0); }

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import CTABand from '../../components/CTABand.astro';
 import { solutions, services, whatsappLink } from '../../data/site';
+import { serviceImages, u } from '../../data/images';
 
 export function getStaticPaths() {
   return solutions.map((s) => ({ params: { slug: s.slug }, props: { sol: s } }));
@@ -25,7 +26,7 @@ const breadcrumb = {
   jsonLd={breadcrumb}
 >
   <section class="page-hero">
-    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="page-hero-bg" aria-hidden="true"><img class="hero-fade" src={u(serviceImages['football-turf'][0], 1600, 700)} alt="" /><div class="hero-glow"></div></div>
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/solutions">Solutions</a> <span>/</span> <span class="current">{sol.title}</span></nav>
       <h1 class="h-display" data-reveal data-delay="1">{sol.h1}</h1>
