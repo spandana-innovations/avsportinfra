@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base title="Page Not Found" description="The page you were looking for could not be found." noindex={true}>
+  <section class="nf">
+    <div class="container">
+      <span class="code">404</span>
+      <h1 class="section-title">This ground doesn't exist</h1>
+      <p class="lead">The page you're after may have moved. Let's get you back on the pitch.</p>
+      <div class="nf-cta">
+        <a href="/" class="btn btn-primary btn-lg">Back to Home</a>
+        <a href="/services" class="btn btn-ghost btn-lg">View Services <Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .nf { text-align: center; padding-block: clamp(4rem, 12vw, 8rem); }
+  .code { font-family: var(--font-display); font-weight: 900; font-size: clamp(4rem, 14vw, 9rem); line-height: 1; color: color-mix(in srgb, var(--grass) 55%, transparent); display: block; }
+  .nf h1 { margin: 0.5rem 0 1rem; }
+  .nf .lead { margin-inline: auto; margin-bottom: 2rem; }
+  .nf-cta { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+</style>

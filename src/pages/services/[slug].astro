@@ -1,0 +1,173 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+import RemoteImage from '../../components/RemoteImage.astro';
+import { services, whatsappLink } from '../../data/site';
+import { serviceImages } from '../../data/images';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { service: s } }));
+}
+const { service } = Astro.props;
+const related = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+const imgs = serviceImages[service.slug] || [];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: service.faqs.map(([q, a]) => ({
+    '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.h1,
+  serviceType: service.keyword,
+  provider: { '@id': 'https://www.avsportsinfra.com/#organization' },
+  areaServed: 'IN',
+  description: service.metaDescription,
+};
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfra.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.avsportsinfra.com/services' },
+    { '@type': 'ListItem', position: 3, name: service.title },
+  ],
+};
+---
+<Base
+  title={service.metaTitle}
+  description={service.metaDescription}
+  path={`/services/${service.slug}`}
+  jsonLd={[serviceLd, faqLd, breadcrumb]}
+>
+  <!-- Page hero -->
+  <section class="svc-hero">
+    <div class="svc-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span> <a href="/services">Services</a> <span>/</span> <span class="current">{service.title}</span>
+      </nav>
+      <span class="icon-badge big" data-reveal><Icon name={service.icon} size={34} /></span>
+      <h1 class="h-display" data-reveal data-delay="1">{service.h1}</h1>
+      <p class="lead" data-reveal data-delay="2">{service.intro}</p>
+      <div class="svc-cta" data-reveal data-delay="3">
+        <a href="/contact" class="btn btn-primary btn-lg">Get a Free Quotation</a>
+        <a href={whatsappLink(service.title + ' — ')} class="btn btn-ghost btn-lg" target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container svc-body">
+      <div class="svc-main">
+        <div class="svc-hero-img" data-reveal>
+          <RemoteImage id={imgs[0]} alt={`${service.h1} by AV Sports and Infrastructure`} w={900} h={560} eager={true} />
+        </div>
+
+        <h2 class="section-title" data-reveal>What's included</h2>
+        <ul class="spec-list" data-reveal>
+          {service.specs.map((sp) => (
+            <li><Icon name="check" size={18} /> {sp}</li>
+          ))}
+        </ul>
+
+        <h2 class="section-title" data-reveal>Frequently asked questions</h2>
+        <div class="faqs" data-reveal>
+          {service.faqs.map(([q, a]) => (
+            <details class="faq">
+              <summary>{q}<Icon name="chevron" size={18} /></summary>
+              <p>{a}</p>
+            </details>
+          ))}
+        </div>
+
+        <div class="svc-gallery" data-reveal>
+          <div class="g-item"><RemoteImage id={imgs[1]} alt={`${service.title} work by AV Sports and Infrastructure`} w={520} h={360} /></div>
+          <div class="g-item"><RemoteImage id={imgs[2]} alt={`${service.title} surface detail`} w={520} h={360} /></div>
+        </div>
+      </div>
+
+      <aside class="svc-aside">
+        <div class="aside-card" data-reveal>
+          <h3>Start your project</h3>
+          <p>Share your site and sport — we'll return a layout and a fixed quote.</p>
+          <a href="/contact" class="btn btn-primary">Get a Quotation</a>
+          <a href={whatsappLink(service.title + ' — ')} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> WhatsApp</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section related">
+    <div class="container">
+      <h2 class="section-title center" data-reveal>Related services</h2>
+      <div class="grid cols-3">
+        {related.map((r, i) => (
+          <a class="card" href={`/services/${r.slug}`} data-reveal data-delay={i}>
+            <span class="icon-badge"><Icon name={r.icon} size={24} /></span>
+            <h3>{r.title}</h3>
+            <p>{r.short}</p>
+            <span class="arrow">Explore <Icon name="arrow" size={16} /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand prefill={service.title + ' — '} />
+</Base>
+
+<style>
+  .svc-hero { position: relative; overflow: hidden; padding-block: clamp(2.6rem, 6vw, 4.5rem); color: #fff; }
+  .svc-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest) 0%, var(--forest-700) 60%, #0a5027 100%); }
+  :root[data-theme='dark'] .svc-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .svc-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .crumbs { font-size: 0.85rem; color: #bfdcc5; margin-bottom: 1.4rem; }
+  .crumbs a:hover { color: var(--grass-300); }
+  .crumbs .current { color: #fff; }
+  .svc-hero .icon-badge.big { width: 68px; height: 68px; border-radius: 18px; background: rgba(255,255,255,0.12); color: var(--grass-300); margin-bottom: 1.2rem; }
+  .svc-hero h1 { color: #fff; margin-bottom: 1rem; max-width: 18ch; }
+  .svc-hero .lead { color: #d7ecdb; max-width: 62ch; margin-bottom: 1.6rem; }
+  .svc-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .svc-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.35); }
+  .svc-cta .btn-ghost:hover { background: rgba(68,192,26,0.16); border-color: var(--grass); }
+
+  .svc-body { display: grid; grid-template-columns: 1fr 340px; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+  .svc-main h2 { margin: 2.2rem 0 1.1rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .svc-main h2:first-of-type { margin-top: 2rem; }
+  .svc-hero-img { height: clamp(240px, 36vw, 420px); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .svc-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.6rem; }
+  .svc-gallery .g-item { height: 220px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .svc-gallery .g-item :global(.remote-img) { transition: transform 0.6s var(--ease); }
+  .svc-gallery .g-item:hover :global(.remote-img) { transform: scale(1.05); }
+  @media (max-width: 480px) { .svc-gallery { grid-template-columns: 1fr; } }
+  .spec-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem 1.4rem; }
+  .spec-list li { display: flex; align-items: center; gap: 0.6rem; color: var(--text-soft); }
+  .spec-list :global(svg) { color: var(--grass-600); flex-shrink: 0; }
+  :root[data-theme='dark'] .spec-list :global(svg) { color: var(--grass-300); }
+  @media (max-width: 560px) { .spec-list { grid-template-columns: 1fr; } }
+
+  .faqs { display: grid; gap: 0.7rem; }
+  .faq { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 1.2rem; transition: border-color 0.25s; }
+  .faq[open] { border-color: color-mix(in srgb, var(--grass) 50%, var(--border)); }
+  .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 0; font-weight: 600; cursor: pointer; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary :global(svg) { transition: transform 0.25s; color: var(--grass-600); flex-shrink: 0; }
+  .faq[open] summary :global(svg) { transform: rotate(180deg); }
+  .faq p { padding: 0 0 1.1rem; color: var(--text-soft); }
+
+  .svc-aside { position: sticky; top: 100px; }
+  .aside-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.6rem; box-shadow: var(--shadow); }
+  .aside-card h3 { text-transform: none; margin-bottom: 0.5rem; }
+  .aside-card p { color: var(--text-soft); font-size: 0.95rem; margin-bottom: 1.1rem; }
+  .aside-card .btn { width: 100%; justify-content: center; margin-bottom: 0.6rem; }
+  @media (max-width: 860px) { .svc-body { grid-template-columns: 1fr; } .svc-aside { position: static; } }
+
+  .related { background: var(--surface-2); }
+  .related .section-title { margin-bottom: 2rem; }
+</style>

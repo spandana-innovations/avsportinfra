@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+import RemoteImage from '../../components/RemoteImage.astro';
+import { services } from '../../data/site';
+import { pageImages } from '../../data/images';
+// Placeholder portfolio — swap these for real projects (photo, title, location, sport).
+const placeholders = services.slice(0, 6).map((s, i) => ({
+  title: `${s.title} Project`,
+  location: '[City], India',
+  sport: s.title,
+  icon: s.icon,
+  img: pageImages.projects[i % pageImages.projects.length],
+}));
+---
+<Base
+  title="Our Projects | Sports Infrastructure Portfolio"
+  description="A portfolio of football turfs, courts, running tracks and turnkey sports facilities delivered by AV Sports and Infrastructure across India."
+  path="/projects"
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="shield" size={15} /> Our Work</p>
+      <h1 class="h-display" data-reveal data-delay="1">Projects &amp; Portfolio</h1>
+      <p class="lead" data-reveal data-delay="2">A selection of grounds, courts and complexes we've engineered and delivered. Real project photos and case studies will appear here.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="note" data-reveal><Icon name="check" size={18} /> This grid is ready for your real projects — send photos and details and we'll populate it.</div>
+      <div class="grid cols-3">
+        {placeholders.map((p, i) => (
+          <article class="proj-card" data-reveal data-delay={i % 3}>
+            <div class="proj-img"><RemoteImage id={p.img} alt={`${p.sport} project by AV Sports and Infrastructure`} w={520} h={360} /><span class="proj-ic"><Icon name={p.icon} size={20} /></span></div>
+            <div class="proj-body">
+              <span class="pill">{p.sport}</span>
+              <h3>{p.title}</h3>
+              <p><Icon name="pin" size={15} /> {p.location}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Want your project built to this standard?" />
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 64ch; }
+  .note { display: flex; align-items: center; gap: 0.6rem; background: color-mix(in srgb, var(--grass) 12%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--grass) 40%, var(--border)); border-radius: var(--radius); padding: 0.9rem 1.2rem; margin-bottom: 2rem; font-size: 0.95rem; }
+  .note :global(svg) { color: var(--grass-600); flex-shrink: 0; }
+  .proj-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.35s var(--ease), box-shadow 0.35s; }
+  .proj-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .proj-img { height: 210px; position: relative; overflow: hidden; }
+  .proj-img :global(.remote-img) { transition: transform 0.6s var(--ease); }
+  .proj-card:hover .proj-img :global(.remote-img) { transform: scale(1.06); }
+  .proj-ic { position: absolute; left: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: color-mix(in srgb, var(--forest) 82%, transparent); color: var(--grass-300); backdrop-filter: blur(4px); }
+  .proj-body { padding: 1.3rem; }
+  .proj-body h3 { text-transform: none; margin: 0.6rem 0 0.4rem; font-size: 1.15rem; }
+  .proj-body p { display: flex; align-items: center; gap: 0.4rem; color: var(--text-soft); font-size: 0.9rem; }
+  .proj-body :global(svg) { color: var(--grass-600); }
+</style>

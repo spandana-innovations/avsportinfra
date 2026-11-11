@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { site, services, whatsappLink } from '../data/site';
+---
+<Base
+  title="Contact AV Sports and Infrastructure | Get a Free Quotation"
+  description="Get a free quotation for football turf, courts, running tracks or a turnkey sports facility. Call, email or WhatsApp AV Sports and Infrastructure today."
+  path="/contact"
+>
+  <section class="page-hero slim">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="phone" size={15} /> Let's Talk</p>
+      <h1 class="h-display" data-reveal data-delay="1">Get a Free Quotation</h1>
+      <p class="lead" data-reveal data-delay="2">Tell us your sport, site and timeline — we'll come back with a layout and a fixed quote. Prefer to talk? Message us on WhatsApp for the fastest response.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <!-- FORM -->
+      <div class="form-wrap card" data-reveal>
+        <!-- Wire `action` to your form backend (Formspree, Web3Forms, Getform, etc.) -->
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="row">
+            <label>Name*<input type="text" name="name" required placeholder="Your name" /></label>
+            <label>Phone / WhatsApp*<input type="tel" name="phone" required placeholder="+91…" /></label>
+          </div>
+          <div class="row">
+            <label>Email<input type="email" name="email" placeholder="you@email.com" /></label>
+            <label>City / Location*<input type="text" name="city" required placeholder="City" /></label>
+          </div>
+          <div class="row">
+            <label>Service needed
+              <select name="service">
+                {services.map((s) => <option value={s.title}>{s.title}</option>)}
+                <option value="Other / Turnkey">Other / Turnkey</option>
+              </select>
+            </label>
+            <label>Approx. area / size<input type="text" name="area" placeholder="e.g. 40m x 20m" /></label>
+          </div>
+          <label>Message<textarea name="message" rows="4" placeholder="Tell us about your project…"></textarea></label>
+          <button type="submit" class="btn btn-primary btn-lg">Get My Quotation</button>
+          <p class="form-note">By submitting you agree to be contacted about your enquiry.</p>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <aside class="contact-info" data-reveal data-delay="1">
+        <div class="ci-card card">
+          <h3>Reach us directly</h3>
+          <ul>
+            <li><span class="ci-ic"><Icon name="phone" size={18} /></span><div><strong>Phone</strong><a href={site.phoneHref}>{site.phone}</a></div></li>
+            <li><span class="ci-ic"><Icon name="whatsapp" size={18} /></span><div><strong>WhatsApp</strong><a href={whatsappLink()} target="_blank" rel="noopener">Chat with us</a></div></li>
+            <li><span class="ci-ic"><Icon name="mail" size={18} /></span><div><strong>Email</strong><a href={`mailto:${site.email}`}>{site.email}</a></div></li>
+            <li><span class="ci-ic"><Icon name="pin" size={18} /></span><div><strong>Office</strong><span>{site.address}, {site.city}</span></div></li>
+            <li><span class="ci-ic"><Icon name="clock" size={18} /></span><div><strong>Hours</strong><span>{site.hours}</span></div></li>
+          </ul>
+          <a href={whatsappLink()} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Chat on WhatsApp</a>
+        </div>
+        <div class="map-slot card">Map embed — add your Google Maps location here</div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 440px; height: 440px; right: -120px; top: -150px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 60ch; }
+
+  .contact-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
+  form { display: grid; gap: 1rem; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label { display: grid; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; color: var(--text); }
+  input, select, textarea { font: inherit; padding: 0.75rem 0.9rem; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); transition: border-color 0.2s, box-shadow 0.2s; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--grass); box-shadow: 0 0 0 3px color-mix(in srgb, var(--grass) 25%, transparent); }
+  form .btn { justify-content: center; margin-top: 0.4rem; }
+  .form-note { font-size: 0.8rem; color: var(--muted); text-align: center; }
+  @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+
+  .contact-info { display: grid; gap: 1.2rem; }
+  .ci-card h3 { text-transform: none; margin-bottom: 1.1rem; }
+  .ci-card ul { list-style: none; padding: 0; margin: 0 0 1.2rem; display: grid; gap: 1rem; }
+  .ci-card li { display: flex; gap: 0.8rem; align-items: center; }
+  .ci-ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: color-mix(in srgb, var(--grass) 14%, transparent); color: var(--grass-600); flex-shrink: 0; }
+  :root[data-theme='dark'] .ci-ic { color: var(--grass-300); }
+  .ci-card strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .ci-card a, .ci-card span { color: var(--text); font-weight: 600; }
+  .ci-card .btn { width: 100%; justify-content: center; }
+  .map-slot { display: grid; place-items: center; text-align: center; min-height: 180px; color: var(--muted); border: 1.5px dashed var(--border); background: repeating-linear-gradient(45deg, var(--surface-2), var(--surface-2) 12px, transparent 12px, transparent 24px); }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>

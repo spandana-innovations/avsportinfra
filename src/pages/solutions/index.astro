@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+import { solutions } from '../../data/site';
+---
+<Base
+  title="Sports Infrastructure Solutions by Sector"
+  description="Sports grounds and facilities for schools, academies, clubs, residential projects and government — designed and built by AV Sports and Infrastructure."
+  path="/solutions"
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="shield" size={15} /> Built Around You</p>
+      <h1 class="h-display" data-reveal data-delay="1">Solutions for Every Sector</h1>
+      <p class="lead" data-reveal data-delay="2">Whether you run a school, an academy, a club or a municipal project, we tailor the surface, budget and timeline to how you'll actually use the space.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid cols-2">
+      {solutions.map((s, i) => (
+        <a class="card sol-card" href={`/solutions/${s.slug}`} data-reveal data-delay={i % 2}>
+          <h3>{s.h1}</h3>
+          <p>{s.angle}</p>
+          <span class="arrow">Learn more <Icon name="arrow" size={16} /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 64ch; }
+  .sol-card h3 { text-transform: none; margin-bottom: 0.5rem; }
+</style>

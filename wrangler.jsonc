@@ -1,0 +1,15 @@
+{
+  // Cloudflare Workers — static-assets deployment for the Astro build.
+  // Deploy with:  npm run deploy   (runs `astro build` then `wrangler deploy`)
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "avsportinfra",
+  "compatibility_date": "2025-11-01",
+  "assets": {
+    // Astro's static output is served directly by the Worker.
+    "directory": "./dist",
+    // Pretty URLs like /services/football-turf resolve to .../index.html
+    "html_handling": "auto-trailing-slash",
+    // Unknown paths serve the custom 404 page.
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import RemoteImage from './RemoteImage.astro';
+interface Props { slug: string; title: string; short: string; icon: string; img?: string; delay?: number; }
+const { slug, title, short, icon, img, delay = 0 } = Astro.props;
+---
+<a class="card service-card" href={`/services/${slug}`} data-reveal data-delay={delay}>
+  {img && (
+    <div class="sc-img">
+      <RemoteImage id={img} alt={`${title} by AV Sports and Infrastructure`} w={640} h={420} />
+      <span class="sc-icon"><Icon name={icon} size={20} /></span>
+    </div>
+  )}
+  {!img && <span class="icon-badge"><Icon name={icon} size={26} /></span>}
+  <div class="sc-body">
+    <h3>{title}</h3>
+    <p>{short}</p>
+    <span class="arrow">Explore <Icon name="arrow" size={16} /></span>
+  </div>
+</a>
+<style>
+  .service-card { display: flex; flex-direction: column; height: 100%; padding: 0; overflow: hidden; }
+  .service-card:has(.sc-body) { padding: 0; }
+  .sc-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  .sc-img :global(.remote-img) { transition: transform 0.6s var(--ease); }
+  .service-card:hover .sc-img :global(.remote-img) { transform: scale(1.06); }
+  .sc-icon { position: absolute; left: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: color-mix(in srgb, var(--forest) 80%, transparent); color: var(--grass-300); backdrop-filter: blur(4px); }
+  .sc-body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+  .service-card h3 { font-size: 1.15rem; text-transform: none; margin-bottom: 0.35rem; }
+  .service-card p { flex: 1; color: var(--text-soft); font-size: 0.96rem; }
+  .service-card:not(:has(.sc-img)) { padding: clamp(1.4rem, 2.5vw, 2rem); }
+</style>

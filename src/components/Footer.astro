@@ -1,0 +1,83 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { site, services, whatsappLink } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <Logo height={52} />
+        <p>{site.description}</p>
+        <div class="socials">
+          <a href={site.socials.facebook} aria-label="Facebook" target="_blank" rel="noopener"><Icon name="facebook" size={18} /></a>
+          <a href={site.socials.instagram} aria-label="Instagram" target="_blank" rel="noopener"><Icon name="instagram" size={18} /></a>
+          <a href={site.socials.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener"><Icon name="linkedin" size={18} /></a>
+          <a href={site.socials.youtube} aria-label="YouTube" target="_blank" rel="noopener"><Icon name="youtube" size={18} /></a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          {services.map((s) => <li><a href={`/services/${s.slug}`}>{s.navTitle}</a></li>)}
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/solutions">Solutions</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col foot-contact">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><Icon name="phone" size={16} /> <a href={site.phoneHref}>{site.phone}</a></li>
+          <li><Icon name="mail" size={16} /> <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><Icon name="pin" size={16} /> <span>{site.address}, {site.city}</span></li>
+          <li><Icon name="clock" size={16} /> <span>{site.hours}</span></li>
+        </ul>
+        <a href={whatsappLink()} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Chat on WhatsApp</a>
+        <p class="area">Serving {site.serviceArea}</p>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p>© {year} {site.name}. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/sitemap-index.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--forest-900); color: #d9e7dc; padding-top: clamp(3rem, 6vw, 5rem); margin-top: 2rem; }
+  :root[data-theme='dark'] .site-footer { background: #021509; border-top: 1px solid var(--border); }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: clamp(1.6rem, 3vw, 2.5rem); padding-bottom: 2.6rem; }
+  .foot-brand p { color: #a9bfae; font-size: 0.95rem; margin: 1rem 0 1.2rem; max-width: 34ch; }
+  .socials { display: flex; gap: 0.6rem; }
+  .socials a { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: rgba(255,255,255,0.06); color: #cfe0d2; transition: background 0.25s, color 0.25s, transform 0.25s; }
+  .socials a:hover { background: var(--grass); color: var(--forest-900); transform: translateY(-2px); }
+  .foot-col h4 { color: #fff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; font-family: var(--font-display); }
+  .foot-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
+  .foot-col a, .foot-contact span { color: #a9bfae; font-size: 0.93rem; transition: color 0.2s; }
+  .foot-col a:hover { color: var(--grass-300); }
+  .foot-contact ul li { display: flex; align-items: center; gap: 0.5rem; }
+  .foot-contact :global(svg) { color: var(--grass-300); flex-shrink: 0; }
+  .foot-contact .btn { margin-top: 1rem; }
+  .area { margin-top: 0.9rem; font-size: 0.85rem; color: #8ba390; }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 1.4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.86rem; color: #8ba390; }
+  .foot-links { display: flex; gap: 1.2rem; }
+  .foot-links a:hover { color: var(--grass-300); }
+  @media (max-width: 920px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { .foot-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import { services } from '../../data/site';
+import { serviceImages } from '../../data/images';
+---
+<Base
+  title="Sports Infrastructure Services in India"
+  description="Football turfs, cricket nets, courts, running tracks, drainage, floodlighting and turnkey sports projects — all built by AV Sports and Infrastructure."
+  path="/services"
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="layers" size={15} /> Full-Service Sports Builder</p>
+      <h1 class="h-display" data-reveal data-delay="1">Complete Sports Infrastructure Services</h1>
+      <p class="lead" data-reveal data-delay="2">From a single turf to a full complex, we deliver every layer of a sports facility — ground works, drainage, surfacing, fencing and lighting — with one team accountable from start to finish.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid cols-3">
+        {services.map((s, i) => (
+          <ServiceCard slug={s.slug} title={s.title} short={s.short} icon={s.icon} img={serviceImages[s.slug]?.[0]} delay={i % 3} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 64ch; }
+</style>

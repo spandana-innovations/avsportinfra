@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+
+const articles = [
+  ['How Much Does Football Turf Construction Cost in India?', 'Football Turf'],
+  ['FIFA Standard Football Ground: Specs, Sizes & Cost', 'Football Turf'],
+  ['Football Turf vs Natural Grass: Which Is Right for You?', 'Football Turf'],
+  ['Futsal Court Construction: Size, Surface & Cost Guide', 'Futsal'],
+  ['Box Cricket Ground Construction: A Complete Guide', 'Cricket'],
+  ['Pickleball Court Construction Cost & Dimensions in India', 'Pickleball'],
+  ['EPDM vs PU Running Tracks: Which to Choose', 'Running Track'],
+  ['Sports Ground Drainage: Why It Makes or Breaks a Pitch', 'Drainage'],
+  ['LED Floodlighting for Sports Grounds: Lux, Cost & Layout', 'Floodlighting'],
+  ['Planning a Turnkey Sports Complex: Step-by-Step', 'Turnkey'],
+];
+const guides = [
+  'Football Turf Dimensions (5, 7, 11-a-side)',
+  'Futsal Court Dimensions',
+  'Cricket Pitch & Box Cricket Dimensions',
+  'Tennis / Basketball / Badminton / Pickleball Dimensions',
+  'Running Track Lane Dimensions',
+];
+---
+<Base
+  title="Resources: Sports Infrastructure Guides & Costs"
+  description="Guides and articles on football turf cost, court dimensions, running tracks, drainage and planning a sports facility — from AV Sports and Infrastructure."
+  path="/resources"
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="layers" size={15} /> Learn &amp; Plan</p>
+      <h1 class="h-display" data-reveal data-delay="1">Resources &amp; Guides</h1>
+      <p class="lead" data-reveal data-delay="2">Costs, dimensions and how-to guides to help you plan the right sports facility. Articles are planned and will publish here.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal><p class="eyebrow">Blog</p><h2 class="section-title">Planned articles</h2></div>
+      <div class="grid cols-2">
+        {articles.map(([title, tag], i) => (
+          <article class="card res-card" data-reveal data-delay={i % 2}>
+            <span class="pill">{tag}</span>
+            <h3>{title}</h3>
+            <span class="arrow">Coming soon</span>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-head guides-head" data-reveal><p class="eyebrow">Reference</p><h2 class="section-title">Spec &amp; dimension guides</h2></div>
+      <ul class="guide-list">
+        {guides.map((g, i) => (
+          <li class="card" data-reveal data-delay={i % 3}><Icon name="check" size={18} /> {g}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CTABand heading="Prefer to just ask an expert?" sub="Skip the research — tell us your project and we'll advise on surface, size and cost." />
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 64ch; }
+  .res-card h3 { text-transform: none; margin: 0.7rem 0 0; font-size: 1.1rem; }
+  .res-card .arrow { color: var(--muted); }
+  .guides-head { margin-top: 3.5rem; }
+  .guide-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .guide-list li { display: flex; align-items: center; gap: 0.6rem; font-weight: 600; }
+  .guide-list :global(svg) { color: var(--grass-600); flex-shrink: 0; }
+  :root[data-theme='dark'] .guide-list :global(svg) { color: var(--grass-300); }
+  @media (max-width: 620px) { .guide-list { grid-template-columns: 1fr; } }
+</style>

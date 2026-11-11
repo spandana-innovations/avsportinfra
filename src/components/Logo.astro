@@ -1,0 +1,17 @@
+---
+interface Props { height?: number; variant?: 'horizontal' | 'stacked'; class?: string; }
+const { height = 46, variant = 'horizontal', class: cls = '' } = Astro.props;
+const light = `/logos/${variant}-light-t.png`;
+const dark = `/logos/${variant}-dark-t.png`;
+---
+<span class={`logo ${cls}`} style={`--logo-h:${height}px`}>
+  <img class="logo-light" src={light} alt="AV Sports and Infrastructure — Best Driven Turfs & Sports Structures" width="860" height={variant === 'horizontal' ? 244 : 648} loading="eager" />
+  <img class="logo-dark" src={dark} alt="AV Sports and Infrastructure — Best Driven Turfs & Sports Structures" width="860" height={variant === 'horizontal' ? 244 : 648} loading="eager" />
+</span>
+<style>
+  .logo { display: inline-flex; align-items: center; line-height: 0; }
+  .logo img { height: var(--logo-h); width: auto; }
+  .logo-dark { display: none; }
+  :global(:root[data-theme='dark']) .logo-light { display: none; }
+  :global(:root[data-theme='dark']) .logo-dark { display: inline; }
+</style>
