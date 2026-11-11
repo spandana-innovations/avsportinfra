@@ -235,7 +235,7 @@ export const services = [
     keyword: 'Swimming Pool Construction Company',
     icon: 'pool',
     intro:
-      'We design and build Olympic-size (50 m) and mini / semi-Olympic (25 m) training pools end to end — 0 to 100%. From the RCC shell, filtration and circulation to tiling, lane markings, starting blocks and deck finishing, we deliver a competition-ready pool built for serious training.',
+      'From a full 50 m Olympic pool to a 25 m mini-Olympic trainer, we build the whole thing — nothing outsourced, nothing left half-finished. We cast the watertight shell, size the filtration and circulation to the water, then finish with tiling, competition lane markings, starting blocks and a safe anti-slip deck. What you get is a pool that is ready to train serious swimmers from the first length.',
     specs: [
       'Olympic (50 m) & mini-Olympic (25 m) sizes',
       'RCC / shotcrete pool shell',

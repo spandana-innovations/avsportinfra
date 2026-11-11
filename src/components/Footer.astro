@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { site, services, branches, whatsappLink } from '../data/site';
+import { site, services, branches } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -44,7 +44,6 @@ const year = new Date().getFullYear();
           <li><Icon name="pin" size={16} /> <span>{site.address}</span></li>
           <li><Icon name="clock" size={16} /> <span>{site.hours}</span></li>
         </ul>
-        <a href={whatsappLink()} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Chat on WhatsApp</a>
         <p class="branches"><strong>Branches:</strong> {branches.join(' · ')}</p>
         <p class="area">Serving {site.serviceArea}</p>
       </div>

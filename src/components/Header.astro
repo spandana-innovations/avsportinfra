@@ -60,10 +60,23 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     <ul>
       {mainNav.map((item) => (
         <li>
-          <a href={item.href} class={isActive(item.href) ? 'active' : ''}>
-            <span class="mi-label">{item.icon && <Icon name={item.icon} size={19} />}{item.label}</span>
-            <Icon name="arrow" size={18} class="mi-arrow" />
-          </a>
+          {item.children ? (
+            <details class="m-acc">
+              <summary>
+                <span class="mi-label">{item.label}</span>
+                <Icon name="chevron" size={18} class="mi-chev" />
+              </summary>
+              <ul class="m-sub">
+                <li><a href={item.href}>All {item.label}</a></li>
+                {item.children.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+              </ul>
+            </details>
+          ) : (
+            <a href={item.href} class={isActive(item.href) ? 'active' : ''}>
+              <span class="mi-label">{item.icon && <Icon name={item.icon} size={19} />}{item.label}</span>
+              <Icon name="arrow" size={18} class="mi-arrow" />
+            </a>
+          )}
         </li>
       ))}
     </ul>
@@ -76,9 +89,10 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <style>
   .site-header { position: sticky; top: 0; z-index: 100; background: var(--header-bg); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease); }
   .site-header.scrolled { border-bottom-color: var(--border); box-shadow: var(--shadow); }
-  .bar { display: flex; align-items: center; gap: 1.2rem; min-height: 78px; }
-  .site-header.scrolled .bar { min-height: 66px; }
-  @media (max-width: 1024px) { .bar { min-height: 64px; } .site-header.scrolled .bar { min-height: 58px; } }
+  .bar { display: flex; align-items: center; gap: 1.2rem; min-height: 96px; }
+  .site-header.scrolled .bar { min-height: 78px; }
+  .brand { padding-block: 10px; }
+  @media (max-width: 1024px) { .bar { min-height: 66px; } .site-header.scrolled .bar { min-height: 60px; } .brand { padding-block: 4px; } }
   .bar { transition: min-height 0.3s var(--ease); }
   .brand { flex-shrink: 0; }
 
@@ -140,6 +154,17 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
     :root[data-theme='dark'] .mobile-drawer nav > ul > li > a:hover, :root[data-theme='dark'] .mobile-drawer nav > ul > li > a.active { color: var(--grass-300); }
     .mobile-drawer nav > ul > li > a:hover :global(.mi-arrow), .mobile-drawer nav > ul > li > a.active :global(.mi-arrow) { opacity: 1; transform: none; }
     :root[data-theme='dark'] .mobile-drawer :global(.mi-arrow) { color: var(--grass-300); }
+    .m-acc summary { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; padding: 1.05rem 0.2rem; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: 1.1rem; color: var(--text); cursor: pointer; list-style: none; }
+    .m-acc summary::-webkit-details-marker { display: none; }
+    .m-acc :global(.mi-chev) { color: var(--muted); transition: transform 0.25s; flex-shrink: 0; }
+    .m-acc[open] > summary { color: var(--grass-600); }
+    :root[data-theme='dark'] .m-acc[open] > summary { color: var(--grass-300); }
+    .m-acc[open] > summary :global(.mi-chev) { transform: rotate(180deg); }
+    .m-sub { list-style: none; padding: 0 0 0.7rem 0.3rem; margin: 0; }
+    .m-sub li { border: none; }
+    .m-sub a { display: block; padding: 0.5rem 0; color: var(--text-soft); font-size: 0.98rem; font-weight: 500; }
+    .m-sub a:hover { color: var(--grass-600); }
+    :root[data-theme='dark'] .m-sub a:hover { color: var(--grass-300); }
     .drawer-cta { display: grid; gap: 0.7rem; margin-top: 1.8rem; }
     .drawer-cta .btn { justify-content: center; }
   }
