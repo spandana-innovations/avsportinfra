@@ -2,17 +2,19 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import CTABand from '../../components/CTABand.astro';
-import RemoteImage from '../../components/RemoteImage.astro';
-import { services } from '../../data/site';
-import { pageImages } from '../../data/images';
-// Placeholder portfolio — swap these for real projects (photo, title, location, sport).
-const placeholders = services.slice(0, 6).map((s, i) => ({
-  title: `${s.title} Project`,
-  location: '[City], India',
-  sport: s.title,
-  icon: s.icon,
-  img: pageImages.projects[i % pageImages.projects.length],
-}));
+
+// Real completed projects. Edit titles/locations to your exact project names & cities.
+const projects = [
+  { img: '/projects/fifa-ground.jpg', title: 'FIFA-Standard Football Ground', sport: 'Football Turf', location: 'India', icon: 'football' },
+  { img: '/projects/football-turf.jpg', title: 'Artificial Football Turf', sport: 'Football Turf', location: 'India', icon: 'football' },
+  { img: '/projects/box-cricket.jpg', title: 'Box Cricket Arena', sport: 'Cricket', location: 'India', icon: 'cricket' },
+  { img: '/projects/running-track.jpg', title: 'Synthetic Running Track', sport: 'Running Track', location: 'India', icon: 'track' },
+  { img: '/projects/basketball.jpg', title: 'Basketball Court', sport: 'Basketball', location: 'India', icon: 'court' },
+  { img: '/projects/pickleball.jpg', title: 'Pickleball Court', sport: 'Pickleball', location: 'India', icon: 'court' },
+  { img: '/projects/complex-aerial.jpg', title: 'Turnkey Sports Complex', sport: 'Turnkey', location: 'India', icon: 'layers' },
+  { img: '/projects/multisport-aerial.jpg', title: 'Multi-Sport Complex', sport: 'Turnkey', location: 'India', icon: 'layers' },
+  { img: '/projects/tennis.jpg', title: 'Tennis Court', sport: 'Tennis', location: 'India', icon: 'court' },
+];
 ---
 <Base
   title="Our Projects | Sports Infrastructure Portfolio"
@@ -24,17 +26,19 @@ const placeholders = services.slice(0, 6).map((s, i) => ({
     <div class="container">
       <p class="pill" data-reveal><Icon name="shield" size={15} /> Our Work</p>
       <h1 class="h-display" data-reveal data-delay="1">Projects &amp; Portfolio</h1>
-      <p class="lead" data-reveal data-delay="2">A selection of grounds, courts and complexes we've engineered and delivered. Real project photos and case studies will appear here.</p>
+      <p class="lead" data-reveal data-delay="2">A selection of grounds, courts, tracks and complexes we've engineered and delivered across India.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="note" data-reveal><Icon name="check" size={18} /> This grid is ready for your real projects — send photos and details and we'll populate it.</div>
       <div class="grid cols-3">
-        {placeholders.map((p, i) => (
+        {projects.map((p, i) => (
           <article class="proj-card" data-reveal data-delay={i % 3}>
-            <div class="proj-img"><RemoteImage id={p.img} alt={`${p.sport} project by AV Sports and Infrastructure`} w={520} h={360} /><span class="proj-ic"><Icon name={p.icon} size={20} /></span></div>
+            <div class="proj-img">
+              <img src={p.img} alt={`${p.title} by AV Sports and Infrastructure`} width="640" height="400" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+              <span class="proj-ic"><Icon name={p.icon} size={20} /></span>
+            </div>
             <div class="proj-body">
               <span class="pill">{p.sport}</span>
               <h3>{p.title}</h3>
@@ -57,16 +61,16 @@ const placeholders = services.slice(0, 6).map((s, i) => ({
   .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
   .page-hero h1 { color: #fff; margin-bottom: 1rem; }
   .page-hero .lead { color: #d7ecdb; max-width: 64ch; }
-  .note { display: flex; align-items: center; gap: 0.6rem; background: color-mix(in srgb, var(--grass) 12%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--grass) 40%, var(--border)); border-radius: var(--radius); padding: 0.9rem 1.2rem; margin-bottom: 2rem; font-size: 0.95rem; }
-  .note :global(svg) { color: var(--grass-600); flex-shrink: 0; }
+
   .proj-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.35s var(--ease), box-shadow 0.35s; }
   .proj-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-  .proj-img { height: 210px; position: relative; overflow: hidden; }
-  .proj-img :global(.remote-img) { transition: transform 0.6s var(--ease); }
-  .proj-card:hover .proj-img :global(.remote-img) { transform: scale(1.06); }
+  .proj-img { height: 230px; position: relative; overflow: hidden; }
+  .proj-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s var(--ease); }
+  .proj-card:hover .proj-img img { transform: scale(1.06); }
   .proj-ic { position: absolute; left: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: color-mix(in srgb, var(--forest) 82%, transparent); color: var(--grass-300); backdrop-filter: blur(4px); }
   .proj-body { padding: 1.3rem; }
   .proj-body h3 { text-transform: none; margin: 0.6rem 0 0.4rem; font-size: 1.15rem; }
   .proj-body p { display: flex; align-items: center; gap: 0.4rem; color: var(--text-soft); font-size: 0.9rem; }
   .proj-body :global(svg) { color: var(--grass-600); }
+  :root[data-theme='dark'] .proj-body :global(svg) { color: var(--grass-300); }
 </style>
