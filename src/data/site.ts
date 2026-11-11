@@ -299,8 +299,6 @@ export const whyUs = [
 ];
 
 export const mainNav: NavItem[] = [
-  { label: 'Home', href: '/', icon: 'home' },
-  { label: 'About', href: '/about' },
   {
     label: 'Services',
     href: '/services',
@@ -312,6 +310,8 @@ export const mainNav: NavItem[] = [
     children: solutions.map((s) => ({ label: s.title, href: `/solutions/${s.slug}` })),
   },
   { label: 'Projects', href: '/projects' },
+  { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Home', href: '/', icon: 'home' },
   { label: 'Contact', href: '/contact', icon: 'phone' },
 ];

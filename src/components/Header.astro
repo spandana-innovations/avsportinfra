@@ -17,7 +17,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
           <li class={item.children ? 'has-children' : ''}>
             {item.icon && !item.children ? (
               <a href={item.href} class={`nav-ic ${isActive(item.href) ? 'active' : ''}`} title={item.label} aria-label={item.label} aria-current={isActive(item.href) ? 'page' : undefined}>
-                <Icon name={item.icon} size={21} />
+                <Icon name={item.icon} size={24} />
               </a>
             ) : (
               <a href={item.href} class={isActive(item.href) ? 'active' : ''} aria-current={isActive(item.href) ? 'page' : undefined}>
@@ -87,9 +87,10 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
   :root[data-theme='dark'] .desktop-nav a:hover { color: var(--grass-300); }
   .desktop-nav a.active { color: var(--grass-600); }
   :root[data-theme='dark'] .desktop-nav a.active { color: var(--grass-300); }
-  .nav-ic { justify-content: center; color: var(--text); padding: 0.5rem 0.6rem; }
-  .nav-ic.active { color: var(--grass-600); }
-  :root[data-theme='dark'] .nav-ic.active { color: var(--grass-300); }
+  .desktop-nav .nav-ic { justify-content: center; color: var(--grass-600); padding: 0.45rem 0.55rem; }
+  .nav-ic :global(svg) { width: 24px; height: 24px; }
+  .desktop-nav .nav-ic:hover { color: var(--grass); background: color-mix(in srgb, var(--grass) 12%, transparent); }
+  :root[data-theme='dark'] .desktop-nav .nav-ic { color: var(--grass-300); }
   :global(.chev) { opacity: 0.6; transition: transform 0.2s; }
   .has-children { position: relative; }
   .has-children:hover :global(.chev) { transform: rotate(180deg); }
