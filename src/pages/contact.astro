@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
-import { site, services, whatsappLink } from '../data/site';
+import { site, services, contacts, branches, whatsappLink } from '../data/site';
 import { serviceImages, u } from '../data/images';
 ---
 <Base
@@ -52,10 +52,13 @@ import { serviceImages, u } from '../data/images';
         <div class="ci-card card">
           <h3>Reach us directly</h3>
           <ul>
-            <li><span class="ci-ic"><Icon name="phone" size={18} /></span><div><strong>Phone</strong><a href={site.phoneHref}>{site.phone}</a></div></li>
+            {contacts.map((c) => (
+              <li><span class="ci-ic"><Icon name="phone" size={18} /></span><div><strong>{c.name}</strong><a href={c.href}>{c.phone}</a></div></li>
+            ))}
             <li><span class="ci-ic"><Icon name="whatsapp" size={18} /></span><div><strong>WhatsApp</strong><a href={whatsappLink()} target="_blank" rel="noopener">Chat with us</a></div></li>
             <li><span class="ci-ic"><Icon name="mail" size={18} /></span><div><strong>Email</strong><a href={`mailto:${site.email}`}>{site.email}</a></div></li>
-            <li><span class="ci-ic"><Icon name="pin" size={18} /></span><div><strong>Office</strong><span>{site.address}, {site.city}</span></div></li>
+            <li><span class="ci-ic"><Icon name="pin" size={18} /></span><div><strong>Office</strong><span>{site.address}</span></div></li>
+            <li><span class="ci-ic"><Icon name="pin" size={18} /></span><div><strong>Branches</strong><span>{branches.join(' · ')}</span></div></li>
             <li><span class="ci-ic"><Icon name="clock" size={18} /></span><div><strong>Hours</strong><span>{site.hours}</span></div></li>
           </ul>
           <a href={whatsappLink()} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Chat on WhatsApp</a>

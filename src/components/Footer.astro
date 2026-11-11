@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { site, services, whatsappLink } from '../data/site';
+import { site, services, branches, whatsappLink } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -41,10 +41,11 @@ const year = new Date().getFullYear();
         <ul>
           <li><Icon name="phone" size={16} /> <a href={site.phoneHref}>{site.phone}</a></li>
           <li><Icon name="mail" size={16} /> <a href={`mailto:${site.email}`}>{site.email}</a></li>
-          <li><Icon name="pin" size={16} /> <span>{site.address}, {site.city}</span></li>
+          <li><Icon name="pin" size={16} /> <span>{site.address}</span></li>
           <li><Icon name="clock" size={16} /> <span>{site.hours}</span></li>
         </ul>
         <a href={whatsappLink()} class="btn btn-wa" target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Chat on WhatsApp</a>
+        <p class="branches"><strong>Branches:</strong> {branches.join(' · ')}</p>
         <p class="area">Serving {site.serviceArea}</p>
       </div>
     </div>
@@ -74,7 +75,9 @@ const year = new Date().getFullYear();
   .foot-contact ul li { display: flex; align-items: center; gap: 0.5rem; }
   .foot-contact :global(svg) { color: var(--grass-300); flex-shrink: 0; }
   .foot-contact .btn { margin-top: 1rem; }
-  .area { margin-top: 0.9rem; font-size: 0.85rem; color: #8ba390; }
+  .branches { margin-top: 0.9rem; font-size: 0.85rem; color: #a9bfae; line-height: 1.5; }
+  .branches strong { color: #cfe0d2; }
+  .area { margin-top: 0.5rem; font-size: 0.85rem; color: #8ba390; }
   .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 1.4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.86rem; color: #8ba390; }
   .foot-links { display: flex; gap: 1.2rem; }
   .foot-links a:hover { color: var(--grass-300); }

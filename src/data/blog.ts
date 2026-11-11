@@ -185,4 +185,30 @@ export const posts: BlogPost[] = [
   },
 ];
 
+posts.push({
+  slug: 'olympic-vs-mini-olympic-training-pools',
+  title: 'Olympic vs Mini-Olympic Training Pools: Sizes, Cost & What to Build',
+  category: 'Swimming Pools',
+  date: '2026-11-08',
+  readMins: 6,
+  image: '1664213644238-52e54838354b',
+  keyword: 'swimming pool construction',
+  excerpt:
+    'Planning a training pool? Here’s the difference between a 50 m Olympic pool and a 25 m mini-Olympic pool, and how to choose for your athletes, site and budget.',
+  sections: [
+    { heading: 'Olympic vs mini-Olympic: the sizes', body: [
+      'A full Olympic pool is 50 m long, usually 8–10 lanes wide, and is what competitive swimmers train and compete in. A mini or semi-Olympic pool is 25 m — half the length — and is the practical choice for most academies, schools and clubs.',
+      'Both are true training pools: the 25 m “short course” is a recognised competition format in its own right, and fits far more sites and budgets than a 50 m build.' ] },
+    { heading: 'What goes into a training pool', body: [
+      'A proper training pool is an engineered system: a watertight RCC or shotcrete shell, circulation and filtration sized to the water volume, water treatment, competition lane lines, correct depth, starting blocks and an anti-slip deck.',
+      'Get the structure and filtration right and the pool stays clear, safe and low-maintenance for years. Cut corners there and you pay for it every season.' ] },
+    { heading: 'How to choose', body: [
+      'Pick 50 m only if you are training for long-course competition and have the land and budget. For academies, schools, clubs and most training needs, a 25 m mini-Olympic pool delivers serious training value at a fraction of the footprint and cost.',
+      'Indoor or outdoor changes the structure and filtration, not the swimming — we advise on both.' ] },
+    { heading: 'Built end to end', body: [
+      'We build training pools 0 to 100% — design, excavation, shell, plumbing, filtration, tiling, lane markings, deck and handover under one contract, so there is one team accountable for a competition-ready result.',
+      'Tell us your site and the swimmers you are building for, and we’ll recommend the size and spec.' ] },
+  ],
+});
+
 export const byDateDesc = [...posts].sort((a, b) => b.date.localeCompare(a.date));

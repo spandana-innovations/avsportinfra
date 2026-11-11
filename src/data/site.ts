@@ -7,16 +7,16 @@ export const site = {
   name: 'AV Sports and Infrastructure',
   shortName: 'AV Sports',
   tagline: 'Best Driven Turfs & Sports Structures',
-  domain: 'https://www.avsportsinfra.com',
+  domain: 'https://www.avsportsinfrastructure.com',
   description:
     'AV Sports and Infrastructure builds FIFA-standard football turfs, courts, running tracks & turnkey sports facilities across India.',
-  // --- Contact (placeholders) ---
-  phone: '[PHONE]',
-  phoneHref: 'tel:+910000000000',
-  whatsapp: '910000000000', // digits only, country code first
+  // --- Contact ---
+  phone: '+91 93724 49834',
+  phoneHref: 'tel:+919372449834',
+  whatsapp: '919372449834', // digits only, country code first
   whatsappMsg: "Hi AV Sports, I'd like a quote for ",
-  email: '[EMAIL]',
-  address: '[ADDRESS]',
+  email: 'avsportsinfrastructure@gmail.com',
+  address: "523, Loha Bhavan, P. D'Mello Rd, Masjid, Opp. Carnac Bandar, Mumbai 400 009",
   city: 'Mumbai',
   hours: 'Mon–Sat, 9:30am–7:00pm',
   serviceArea: 'Mumbai & PAN-India',
@@ -27,6 +27,15 @@ export const site = {
     youtube: '#',
   },
 };
+
+// Named contacts (from the business card)
+export const contacts = [
+  { name: 'Atul', phone: '+91 93724 49834', href: 'tel:+919372449834' },
+  { name: 'Vicky', phone: '+91 99679 10616', href: 'tel:+919967910616' },
+];
+
+// Branch offices
+export const branches = ['Vasai', 'Rewa (MP)', 'Banaras (UP)', 'Guwahati'];
 
 export const whatsappLink = (prefill = '') =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMsg + prefill)}`;
@@ -212,6 +221,33 @@ export const services = [
     faqs: [
       ['What’s the difference between EPDM and PU?', 'EPDM is the coloured rubber top layer; PU is the binder/full-pour system. We advise per use and budget.'],
       ['Do you build full 400 m tracks?', 'Yes — from practice straights to full multi-lane athletic tracks.'],
+    ],
+  },
+  {
+    slug: 'swimming-pools',
+    title: 'Swimming Pools',
+    navTitle: 'Swimming Pools',
+    h1: 'Olympic & Training Swimming Pool Construction',
+    short: 'Olympic and mini-Olympic training pools, built end to end.',
+    metaTitle: 'Swimming Pool Construction Company in India',
+    metaDescription:
+      'Olympic size and mini-Olympic training swimming pool construction across India — turnkey from design to handover. Competition lanes, filtration and finishing.',
+    keyword: 'Swimming Pool Construction Company',
+    icon: 'pool',
+    intro:
+      'We design and build Olympic-size (50 m) and mini / semi-Olympic (25 m) training pools end to end — 0 to 100%. From the RCC shell, filtration and circulation to tiling, lane markings, starting blocks and deck finishing, we deliver a competition-ready pool built for serious training.',
+    specs: [
+      'Olympic (50 m) & mini-Olympic (25 m) sizes',
+      'RCC / shotcrete pool shell',
+      'Competition lane lines & markings',
+      'Filtration, circulation & water treatment',
+      'Anti-slip deck, tiling & finishing',
+      'Starting blocks & depth to training spec',
+    ],
+    faqs: [
+      ['What pool sizes do you build?', 'Full Olympic (50 m, typically 8–10 lanes) and mini / semi-Olympic (25 m) training pools, sized to your site and purpose.'],
+      ['Is it a complete, turnkey build?', 'Yes — 0 to 100%: structure, plumbing, filtration, tiling, lane markings, deck and handover under one contract.'],
+      ['Indoor or outdoor pools?', 'Both. We advise on structure, filtration and finishing to suit the location and usage.'],
     ],
   },
   {

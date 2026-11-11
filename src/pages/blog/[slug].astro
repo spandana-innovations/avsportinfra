@@ -22,14 +22,14 @@ const articleLd = {
   description: post.excerpt,
   datePublished: post.date,
   author: { '@type': 'Organization', name: 'AV Sports and Infrastructure' },
-  publisher: { '@id': 'https://www.avsportsinfra.com/#organization' },
-  mainEntityOfPage: `https://www.avsportsinfra.com/blog/${post.slug}`,
+  publisher: { '@id': 'https://www.avsportsinfrastructure.com/#organization' },
+  mainEntityOfPage: `https://www.avsportsinfrastructure.com/blog/${post.slug}`,
 };
 const breadcrumb = {
   '@context': 'https://schema.org', '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfra.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.avsportsinfra.com/blog' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfrastructure.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.avsportsinfrastructure.com/blog' },
     { '@type': 'ListItem', position: 3, name: post.title },
   ],
 };
