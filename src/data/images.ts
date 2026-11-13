@@ -4,11 +4,15 @@
 // To swap an image: replace the id (the part after `photo-`) with another.
 // ─────────────────────────────────────────────────────────────────────────
 
-const BASE = 'https://images.unsplash.com/photo-';
-
-/** Build a responsive, auto-format Unsplash URL. */
-export const u = (id: string, w = 1200, h?: number, q = 75) =>
-  `${BASE}${id}?auto=format&fit=crop&w=${w}&q=${q}` + (h ? `&h=${h}` : '');
+/**
+ * Self-hosted, pre-optimised WebP images in /public/img.
+ * Two responsive widths are generated per photo id: 640 and 1280.
+ * The `h`/`q` params are kept for call-site compatibility but are unused —
+ * each image is served at its natural aspect and cropped by the container
+ * (object-fit: cover).
+ */
+export const u = (id: string, w = 1200, _h?: number, _q?: number) =>
+  `/img/${id}-${w <= 640 ? 640 : 1280}.webp`;
 
 export const pageImages = {
   heroBg: '1676746610993-fa0c050d1f6d',

@@ -37,6 +37,12 @@ export const contacts = [
 // Branch offices
 export const branches = ['Vasai', 'Rewa (MP)', 'Banaras (UP)', 'Guwahati'];
 
+// Analytics & verification — fill these in to switch them on.
+export const analytics = {
+  ga4: '',             // GA4 Measurement ID, e.g. 'G-XXXXXXXXXX'
+  gscVerification: '', // Google Search Console meta-tag token
+};
+
 export const whatsappLink = (prefill = '') =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMsg + prefill)}`;
 

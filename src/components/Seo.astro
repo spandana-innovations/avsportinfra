@@ -11,7 +11,7 @@ interface Props {
 const { title, description, path = '', type = 'website', jsonLd, noindex = false } = Astro.props;
 const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 const canonical = new URL(path || Astro.url.pathname, site.domain).href;
-const ogImage = new URL('/logos/stacked-dark.png', site.domain).href;
+const ogImage = new URL('/og-image.jpg', site.domain).href;
 
 const org = {
   '@context': 'https://schema.org',

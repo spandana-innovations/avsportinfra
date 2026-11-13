@@ -10,10 +10,9 @@ interface Props {
   sizes?: string;
 }
 const { id, alt, w = 1200, h, class: cls = '', eager = false, sizes } = Astro.props;
-const src = u(id, w, h);
-const srcset = [Math.round(w / 2), w, Math.round(w * 1.5)]
-  .map((width) => `${u(id, width, h ? Math.round((h / w) * width) : undefined)} ${width}w`)
-  .join(', ');
+const src = u(id, w);
+// Two self-hosted widths exist per image (640, 1280)
+const srcset = `${u(id, 640)} 640w, ${u(id, 1280)} 1280w`;
 ---
 <img
   src={src}

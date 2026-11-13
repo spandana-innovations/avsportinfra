@@ -4,6 +4,7 @@ import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFab from '../components/WhatsAppFab.astro';
+import { analytics } from '../data/site';
 
 interface Props {
   title: string;
@@ -21,15 +22,26 @@ const { title, description, path, jsonLd, noindex } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#013b1b" />
     <meta name="generator" content={Astro.generator} />
+    {analytics.gscVerification && <meta name="google-site-verification" content={analytics.gscVerification} />}
+    {analytics.ga4 && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4}`}></script>
+        <script is:inline define:vars={{ GA4: analytics.ga4 }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', GA4);
+        </script>
+      </>
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
 
     <!-- No-flash theme init: runs before paint -->
     <script is:inline>
@@ -54,6 +66,24 @@ const { title, description, path, jsonLd, noindex } = Astro.props;
     </main>
     <Footer />
     <WhatsAppFab />
+
+    <!-- Conversion tracking (fires only when GA4 is configured) -->
+    <script is:inline>
+      (function () {
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest ? e.target.closest('a') : null;
+          if (!a || typeof gtag !== 'function') return;
+          var href = a.getAttribute('href') || '';
+          if (href.indexOf('wa.me') > -1) gtag('event', 'whatsapp_click');
+          else if (href.indexOf('tel:') === 0) gtag('event', 'call_click');
+        });
+        document.addEventListener('submit', function (e) {
+          if (e.target && e.target.tagName === 'FORM' && typeof gtag === 'function') {
+            gtag('event', 'generate_lead');
+          }
+        });
+      })();
+    </script>
 
     <!-- Scroll reveal -->
     <script is:inline>
