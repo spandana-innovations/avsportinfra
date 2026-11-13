@@ -1,0 +1,9 @@
+# Local dev secrets for `wrangler dev`. Copy to `.dev.vars` (git-ignored) and
+# fill in. For production, set these as Cloudflare secrets instead:
+#   npx wrangler secret put RESEND_API_KEY
+#
+# Required: your Resend API key (https://resend.com/api-keys)
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
+# Optional overrides (defaults shown):
+# ENQUIRY_TO=info@avsportinfra.com
+# RESEND_FROM=AV Sports and Infrastructure <info@avsportinfra.com>

@@ -15,7 +15,7 @@ export const site = {
   phoneHref: 'tel:+919372449834',
   whatsapp: '919372449834', // digits only, country code first
   whatsappMsg: "Hi AV Sports, I'd like a quote for ",
-  email: 'avsportsinfrastructure@gmail.com',
+  email: 'info@avsportinfra.com',
   address: "523, Loha Bhavan, P. D'Mello Rd, Masjid, Opp. Carnac Bandar, Mumbai 400 009",
   city: 'Mumbai',
   hours: 'Mon–Sat, 9:30am–7:00pm',

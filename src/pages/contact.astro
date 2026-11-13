@@ -22,8 +22,7 @@ import { serviceImages, u } from '../data/images';
     <div class="container contact-grid">
       <!-- FORM -->
       <div class="form-wrap card" data-reveal>
-        <!-- Wire `action` to your form backend (Formspree, Web3Forms, Getform, etc.) -->
-        <form action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="enquiry-form" action="/api/enquiry" method="POST">
           <div class="row">
             <label>Name*<input type="text" name="name" required placeholder="Your name" /></label>
             <label>Phone / WhatsApp*<input type="tel" name="phone" required placeholder="+91…" /></label>
@@ -42,8 +41,11 @@ import { serviceImages, u } from '../data/images';
             <label>Approx. area / size<input type="text" name="area" placeholder="e.g. 40m x 20m" /></label>
           </div>
           <label>Message<textarea name="message" rows="4" placeholder="Tell us about your project…"></textarea></label>
-          <button type="submit" class="btn btn-primary btn-lg">Get My Quotation</button>
-          <p class="form-note">By submitting you agree to be contacted about your enquiry.</p>
+          <!-- Honeypot: hidden from people, catches bots -->
+          <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label></div>
+          <button type="submit" class="btn btn-primary btn-lg" id="enquiry-submit">Get My Quotation</button>
+          <p class="form-status" id="enquiry-status" role="status" aria-live="polite" hidden></p>
+          <p class="form-note">By submitting you agree to be contacted about your enquiry. For the fastest response, <a href={whatsappLink()} target="_blank" rel="noopener">message us on WhatsApp</a>.</p>
         </form>
       </div>
 
@@ -86,6 +88,13 @@ import { serviceImages, u } from '../data/images';
   input:focus, select:focus, textarea:focus { outline: none; border-color: var(--grass); box-shadow: 0 0 0 3px color-mix(in srgb, var(--grass) 25%, transparent); }
   form .btn { justify-content: center; margin-top: 0.4rem; }
   .form-note { font-size: 0.8rem; color: var(--muted); text-align: center; }
+  .form-note a { color: var(--grass-600); font-weight: 600; }
+  :root[data-theme='dark'] .form-note a { color: var(--grass-300); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-status { font-size: 0.92rem; font-weight: 600; text-align: center; padding: 0.7rem 0.9rem; border-radius: 10px; margin: 0; }
+  .form-status.ok { background: color-mix(in srgb, var(--grass) 16%, transparent); color: var(--grass-600); }
+  :root[data-theme='dark'] .form-status.ok { color: var(--grass-300); }
+  .form-status.err { background: color-mix(in srgb, #e5484d 14%, transparent); color: #c0343a; }
   @media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
 
   .contact-info { display: grid; gap: 1.2rem; }
@@ -100,3 +109,44 @@ import { serviceImages, u } from '../data/images';
   .map-slot { display: grid; place-items: center; text-align: center; min-height: 180px; color: var(--muted); border: 1.5px dashed var(--border); background: repeating-linear-gradient(45deg, var(--surface-2), var(--surface-2) 12px, transparent 12px, transparent 24px); }
   @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
 </style>
+
+<script>
+  const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+  const status = document.getElementById('enquiry-status');
+  const btn = document.getElementById('enquiry-submit') as HTMLButtonElement | null;
+  const show = (msg: string, ok: boolean) => {
+    if (!status) return;
+    status.textContent = msg;
+    status.className = 'form-status ' + (ok ? 'ok' : 'err');
+    status.hidden = false;
+  };
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn) return;
+    const data = Object.fromEntries(new FormData(form).entries());
+    btn.disabled = true;
+    const label = btn.textContent;
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const out = await res.json().catch(() => ({ ok: false }));
+      if (res.ok && out.ok) {
+        form.reset();
+        show("Thanks! We've received your enquiry and emailed you a confirmation. We'll be in touch shortly. WhatsApp us for a faster reply.", true);
+        btn.textContent = 'Sent ✓';
+      } else {
+        show(out.error || 'Something went wrong. Please WhatsApp or call us instead.', false);
+        btn.disabled = false;
+        btn.textContent = label || 'Get My Quotation';
+      }
+    } catch (err) {
+      show('Network error. Please WhatsApp or call us instead.', false);
+      btn.disabled = false;
+      btn.textContent = label || 'Get My Quotation';
+    }
+  });
+</script>
