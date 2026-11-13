@@ -7,7 +7,7 @@ export const site = {
   name: 'AV Sports and Infrastructure',
   shortName: 'AV Sports',
   tagline: 'Best Driven Turfs & Sports Structures',
-  domain: 'https://www.avsportsinfrastructure.com',
+  domain: 'https://avsportinfra.com',
   description:
     'AV Sports and Infrastructure builds FIFA-standard football turfs, courts, running tracks & turnkey sports facilities across India.',
   // --- Contact ---

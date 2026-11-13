@@ -16,12 +16,12 @@ const blogLd = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
   name: 'AV Sports and Infrastructure Blog',
-  url: 'https://www.avsportsinfrastructure.com/blog',
+  url: 'https://avsportinfra.com/blog',
   blogPost: published.map((p) => ({
     '@type': 'BlogPosting',
     headline: p.title,
     datePublished: p.date,
-    url: `https://www.avsportsinfrastructure.com/blog/${p.slug}`,
+    url: `https://avsportinfra.com/blog/${p.slug}`,
   })),
 };
 ---

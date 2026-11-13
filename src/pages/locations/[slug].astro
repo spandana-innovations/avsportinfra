@@ -14,15 +14,15 @@ const picks = services.slice(0, 9);
 const breadcrumb = {
   '@context': 'https://schema.org', '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfrastructure.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://www.avsportsinfrastructure.com/locations' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://avsportinfra.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://avsportinfra.com/locations' },
     { '@type': 'ListItem', position: 3, name: loc.city },
   ],
 };
 const serviceLd = {
   '@context': 'https://schema.org', '@type': 'Service',
   name: `Sports Infrastructure in ${loc.city}`,
-  provider: { '@id': 'https://www.avsportsinfrastructure.com/#organization' },
+  provider: { '@id': 'https://avsportinfra.com/#organization' },
   areaServed: loc.city + ', ' + loc.region,
   description: loc.blurb,
 };
