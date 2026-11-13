@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+const updated = '13 November 2026';
+---
+<Base title="Cookie Policy" description="How AV Sports and Infrastructure uses cookies and similar technologies on its website." path="/cookies">
+  <section class="section">
+    <div class="container prose">
+      <h1 class="section-title">Cookie Policy</h1>
+      <p class="muted">Last updated: {updated}</p>
+
+      <p>This policy explains how {site.name} uses cookies and similar technologies on {site.domain.replace('https://', '')}. It should be read alongside our <a href="/privacy">Privacy Policy</a>.</p>
+
+      <h2>What cookies are</h2>
+      <p>Cookies are small text files stored on your device when you visit a website. Similar technologies, such as your browser's local storage, work in the same way. They help a website function, remember your preferences and understand how it is used.</p>
+
+      <h2>How we use them</h2>
+      <p>We keep our use of cookies to a minimum. We use them for:</p>
+      <ul>
+        <li><strong>Essential preferences.</strong> We store your light or dark theme choice in your browser's local storage so the site remembers it on your next visit. This stays on your device and is not shared with us.</li>
+        <li><strong>Analytics.</strong> If analytics are enabled, we use privacy-respecting analytics (such as Google Analytics) to understand which pages are visited and how the site performs, so we can improve it. These set their own cookies and collect aggregated, mostly anonymous usage data.</li>
+      </ul>
+      <p>We do not use cookies for third-party advertising or to sell your data.</p>
+
+      <h2>Third-party services</h2>
+      <p>Some features may rely on third parties that set their own cookies, such as our analytics provider or an embedded map. Their use of cookies is governed by their own privacy and cookie policies.</p>
+
+      <h2>Managing cookies</h2>
+      <p>You can control or delete cookies through your browser settings, and clear local storage at any time. Most browsers let you block cookies or alert you before one is set. Blocking essential storage may mean the site no longer remembers your theme preference, but core features will still work.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy from time to time. The "last updated" date above shows when it was last revised.</p>
+
+      <h2>Contact us</h2>
+      <p>For any questions about this policy, contact us at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+</Base>
+<style>
+  .prose { max-width: 72ch; }
+  .prose h2 { font-size: 1.3rem; margin: 2rem 0 0.6rem; }
+  .prose p { color: var(--text-soft); margin-bottom: 1rem; line-height: 1.7; }
+  .prose ul { margin: 0 0 1rem 1.1rem; color: var(--text-soft); display: grid; gap: 0.5rem; }
+  .prose li { line-height: 1.6; }
+  .prose :global(strong) { color: var(--text); }
+  .prose .muted { color: var(--muted); font-size: 0.9rem; }
+  .prose a { color: var(--grass-600); font-weight: 600; }
+  :root[data-theme='dark'] .prose a { color: var(--grass-300); }
+</style>

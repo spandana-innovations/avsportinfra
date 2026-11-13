@@ -46,8 +46,7 @@ const year = new Date().getFullYear();
           <li><Icon name="pin" size={16} /> <span>{site.address}</span></li>
           <li><Icon name="clock" size={16} /> <span>{site.hours}</span></li>
         </ul>
-        <p class="branches"><strong>Branches:</strong> {branches.join(' · ')}</p>
-        <p class="area">Serving {site.serviceArea}</p>
+        <p class="branches"><strong>Branch offices:</strong> {branches.join(' · ')}</p>
       </div>
     </div>
 
@@ -60,6 +59,7 @@ const year = new Date().getFullYear();
       <p>© {year} {site.name}. All rights reserved.</p>
       <div class="foot-links">
         <a href="/privacy">Privacy Policy</a>
+        <a href="/cookies">Cookie Policy</a>
         <a href="/sitemap-index.xml">Sitemap</a>
       </div>
     </div>
