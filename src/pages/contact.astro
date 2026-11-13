@@ -95,7 +95,7 @@ import { serviceImages, u } from '../data/images';
   .ci-ic { width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center; background: color-mix(in srgb, var(--grass) 14%, transparent); color: var(--grass-600); flex-shrink: 0; }
   :root[data-theme='dark'] .ci-ic { color: var(--grass-300); }
   .ci-card strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-  .ci-card a.ci-card span { color: var(--text); font-weight: 600; }
+  .ci-card a, .ci-card span { color: var(--text); font-weight: 600; }
   .ci-card .btn { width: 100%; justify-content: center; }
   .map-slot { display: grid; place-items: center; text-align: center; min-height: 180px; color: var(--muted); border: 1.5px dashed var(--border); background: repeating-linear-gradient(45deg, var(--surface-2), var(--surface-2) 12px, transparent 12px, transparent 24px); }
   @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
