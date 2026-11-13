@@ -211,4 +211,48 @@ posts.push({
   ],
 });
 
+posts.push({
+  slug: 'sports-flooring-types-epdm-pu-acrylic-tiles',
+  title: 'Sports Flooring Types: EPDM, PU, Acrylic & Modular Tiles',
+  category: 'Sports Flooring',
+  date: '2026-11-11',
+  readMins: 6,
+  image: '1540080207997-ebe067608bd2',
+  keyword: 'sports flooring',
+  excerpt:
+    'EPDM, PU, acrylic, synthetic, modular tiles — the sports-flooring options sound similar but behave very differently. Here’s how to choose for your sport and site.',
+  sections: [
+    { heading: 'EPDM rubber', body: [
+      'EPDM is a coloured rubber granule surface, laid seamless over a base. It’s shock-absorbing and UV-stable — the go-to for running tracks, play areas and gym surfaces where cushioning matters.' ] },
+    { heading: 'Polyurethane (PU)', body: [
+      'PU is a poured, seamless system prized for durability and performance. Full-pour PU handles heavy and competition use and is common on premium tracks and multi-purpose halls.' ] },
+    { heading: 'Acrylic court coatings', body: [
+      'Acrylic is a multi-coat hard-court finish for tennis, basketball, pickleball and multi-sport courts — grippy, low-maintenance and available cushioned for more comfort.' ] },
+    { heading: 'Interlocking modular tiles', body: [
+      'Modular tiles click together over any firm, level base — quick to install, easy to lift and relay, and ideal for rooftops and temporary or multi-use courts.',
+      'Not sure which fits? Tell us the sport, whether it’s indoor or outdoor, and the base you have — we’ll specify the right floor and install it.' ] },
+  ],
+});
+
+posts.push({
+  slug: 'synthetic-running-track-cost-india',
+  title: 'Synthetic Running Track Cost in India: EPDM vs PU, 13mm vs 15mm',
+  category: 'Running Tracks',
+  date: '2026-11-12',
+  readMins: 6,
+  image: '1549896869-ca27eeffe4fb',
+  keyword: 'running track construction cost india',
+  excerpt:
+    'What drives the cost of a synthetic athletic track — system type, thickness, base condition and length — and how to choose between EPDM and full-pour PU.',
+  sections: [
+    { heading: 'What drives the cost', body: [
+      'The biggest factors are the track system (spray-coat, EPDM sandwich or full-pour PU), the thickness (commonly 13 mm or 15 mm), the condition of the base, and the length — a practice straight costs far less than a full 400 m, multi-lane oval.' ] },
+    { heading: 'EPDM sandwich vs full-pour PU', body: [
+      'A 13 mm EPDM sandwich system is economical and well-suited to schools and practice tracks. A full-pour PU system costs more but offers the best durability and performance for heavy and competition use.' ] },
+    { heading: 'Don’t forget the base and drainage', body: [
+      'A synthetic track is only as good as the base and drainage beneath it. Skipping proper civil works is the most common way a track fails early — and the most expensive to fix later.',
+      'Share your length, location and intended use and we’ll return an itemised quote, built to World Athletics-aligned specs.' ] },
+  ],
+});
+
 export const byDateDesc = [...posts].sort((a, b) => b.date.localeCompare(a.date));

@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
 import Icon from './Icon.astro';
-import { site, services, branches } from '../data/site';
+import { site, services, branches, locations } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -31,6 +31,7 @@ const year = new Date().getFullYear();
           <li><a href="/about">About Us</a></li>
           <li><a href="/solutions">Solutions</a></li>
           <li><a href="/projects">Projects</a></li>
+          <li><a href="/locations">Locations</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
@@ -47,6 +48,11 @@ const year = new Date().getFullYear();
         <p class="branches"><strong>Branches:</strong> {branches.join(' · ')}</p>
         <p class="area">Serving {site.serviceArea}</p>
       </div>
+    </div>
+
+    <div class="foot-cities">
+      <span>Serving:</span>
+      {locations.map((loc) => <a href={`/locations/${loc.slug}`}>{loc.city}</a>)}
     </div>
 
     <div class="foot-bottom">
@@ -77,6 +83,10 @@ const year = new Date().getFullYear();
   .branches { margin-top: 0.9rem; font-size: 0.85rem; color: #a9bfae; line-height: 1.5; }
   .branches strong { color: #cfe0d2; }
   .area { margin-top: 0.5rem; font-size: 0.85rem; color: #8ba390; }
+  .foot-cities { display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; align-items: baseline; padding: 1.3rem 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.82rem; }
+  .foot-cities span { color: #8ba390; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.74rem; }
+  .foot-cities a { color: #a9bfae; transition: color 0.2s; }
+  .foot-cities a:hover { color: var(--grass-300); }
   .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 1.4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.86rem; color: #8ba390; }
   .foot-links { display: flex; gap: 1.2rem; }
   .foot-links a:hover { color: var(--grass-300); }

@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CTABand from '../../components/CTABand.astro';
+import { locations } from '../../data/site';
+---
+<Base
+  title="Where We Work | Sports Infrastructure Across India"
+  description="AV Sports and Infrastructure builds football turfs, courts, running tracks and turnkey sports facilities across Mumbai, Maharashtra and PAN-India. Find your city."
+  path="/locations"
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><div class="hero-glow"></div></div>
+    <div class="container">
+      <p class="pill" data-reveal><Icon name="pin" size={15} /> PAN-India</p>
+      <h1 class="h-display" data-reveal data-delay="1">Where We Work</h1>
+      <p class="lead" data-reveal data-delay="2">Based in Mumbai, delivering sports infrastructure across India. Pick your city to see what we build there.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid cols-3">
+      {locations.map((loc, i) => (
+        <a class="card loc-card" href={`/locations/${loc.slug}`} data-reveal data-delay={i % 3}>
+          <span class="icon-badge"><Icon name="pin" size={22} /></span>
+          <h3>{loc.city}</h3>
+          <p>{loc.region}</p>
+          <span class="arrow">View {loc.city} <Icon name="arrow" size={16} /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CTABand />
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1.2rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; }
+  .page-hero .lead { color: #d7ecdb; max-width: 60ch; }
+  .loc-card h3 { text-transform: none; margin-bottom: 0.2rem; }
+  .loc-card p { color: var(--text-soft); font-size: 0.92rem; }
+</style>

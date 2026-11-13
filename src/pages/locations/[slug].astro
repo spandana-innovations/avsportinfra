@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import { locations, services, processSteps } from '../../data/site';
+import { serviceImages, u } from '../../data/images';
+
+export function getStaticPaths() {
+  return locations.map((loc) => ({ params: { slug: loc.slug }, props: { loc } }));
+}
+const { loc } = Astro.props;
+const picks = services.slice(0, 9);
+const breadcrumb = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfrastructure.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Locations', item: 'https://www.avsportsinfrastructure.com/locations' },
+    { '@type': 'ListItem', position: 3, name: loc.city },
+  ],
+};
+const serviceLd = {
+  '@context': 'https://schema.org', '@type': 'Service',
+  name: `Sports Infrastructure in ${loc.city}`,
+  provider: { '@id': 'https://www.avsportsinfrastructure.com/#organization' },
+  areaServed: loc.city + ', ' + loc.region,
+  description: loc.blurb,
+};
+---
+<Base
+  title={`Sports Infrastructure Company in ${loc.city}`}
+  description={`Football turf, courts, running tracks, sports flooring & turnkey sports facilities in ${loc.city}, ${loc.region}. Built by AV Sports and Infrastructure.`}
+  path={`/locations/${loc.slug}`}
+  jsonLd={[serviceLd, breadcrumb]}
+>
+  <section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true"><img class="hero-fade" src={u(serviceImages['football-turf'][0], 1600, 700)} alt="" /><div class="hero-glow"></div></div>
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/locations">Locations</a> <span>/</span> <span class="current">{loc.city}</span></nav>
+      <p class="pill" data-reveal><Icon name="pin" size={15} /> Serving {loc.city}</p>
+      <h1 class="h-display" data-reveal data-delay="1">Sports Infrastructure Company in {loc.city}</h1>
+      <p class="lead" data-reveal data-delay="2">{loc.blurb}</p>
+      <div class="loc-cta" data-reveal data-delay="3">
+        <a href="/contact" class="btn btn-primary btn-lg">Get a Free Quotation</a>
+        <a href="/projects" class="btn btn-ghost btn-lg">See Our Work <Icon name="arrow" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">What We Build in {loc.city}</p>
+        <h2 class="section-title">Every surface, one accountable team</h2>
+        <p class="lead">From football turf to running tracks, courts, flooring and complete complexes — designed, built and handed over by AV Sports and Infrastructure.</p>
+      </div>
+      <div class="grid cols-3">
+        {picks.map((s, i) => (
+          <ServiceCard slug={s.slug} title={s.title} short={s.short} icon={s.icon} img={serviceImages[s.slug]?.[0]} delay={i % 3} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-sec">
+    <div class="container">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">How We Deliver in {loc.city}</p>
+        <h2 class="section-title">From site survey to first whistle</h2>
+      </div>
+      <div class="grid cols-4">
+        {processSteps.map((p, i) => (
+          <div class="step" data-reveal data-delay={i}>
+            <span class="step-n">{p.n}</span>
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading={`Planning a sports facility in ${loc.city}?`} prefill={loc.city + ' — '} />
+</Base>
+
+<style>
+  .page-hero { position: relative; overflow: hidden; color: #fff; padding-block: clamp(2.6rem, 6vw, 4.5rem); }
+  .page-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest), var(--forest-700) 60%, #0a5027); }
+  :root[data-theme='dark'] .page-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .page-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .crumbs { font-size: 0.85rem; color: #bfdcc5; margin-bottom: 1.2rem; }
+  .crumbs a:hover { color: var(--grass-300); }
+  .crumbs .current { color: #fff; }
+  .page-hero .pill { background: rgba(255,255,255,0.12); color: #cdebc0; margin-bottom: 1rem; }
+  .page-hero h1 { color: #fff; margin-bottom: 1rem; max-width: 20ch; }
+  .page-hero .lead { color: #d7ecdb; max-width: 64ch; margin-bottom: 1.6rem; }
+  .loc-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .loc-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.35); }
+  .loc-cta .btn-ghost:hover { background: rgba(68,192,26,0.16); border-color: var(--grass); }
+  .process-sec { background: var(--surface-2); }
+  .step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.6rem 1.4rem; box-shadow: var(--shadow); }
+  .step-n { font-family: var(--font-display); font-weight: 700; font-size: 2.2rem; color: color-mix(in srgb, var(--grass) 45%, transparent); line-height: 1; display: block; margin-bottom: 0.5rem; }
+  .step h3 { font-size: 1.05rem; text-transform: none; margin-bottom: 0.3rem; }
+  .step p { color: var(--text-soft); font-size: 0.92rem; }
+</style>
