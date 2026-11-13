@@ -76,6 +76,12 @@ const breadcrumb = {
           ))}
         </ul>
 
+        {service.body && service.body.length > 0 && (
+          <div class="svc-prose" data-reveal>
+            {service.body.map((para) => <p set:html={para} />)}
+          </div>
+        )}
+
         <h2 class="section-title" data-reveal>Frequently asked questions</h2>
         <div class="faqs" data-reveal>
           {service.faqs.map(([q, a]) => (
@@ -141,6 +147,9 @@ const breadcrumb = {
   .svc-main h2 { margin: 2.2rem 0 1.1rem; font-size: clamp(1.5rem, 3vw, 2rem); }
   .svc-main h2:first-of-type { margin-top: 2rem; }
   .svc-hero-img { height: clamp(240px, 36vw, 420px); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .svc-prose { margin-top: 1.6rem; }
+  .svc-prose p { color: var(--text-soft); margin-bottom: 1rem; line-height: 1.75; }
+  .svc-prose :global(strong) { color: var(--text); font-weight: 600; }
   .svc-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.6rem; }
   .svc-gallery .g-item { height: 220px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
   .svc-gallery .g-item :global(.remote-img) { transition: transform 0.6s var(--ease); }
