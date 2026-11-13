@@ -532,6 +532,89 @@ export const whyUs = [
   { title: 'On-time handover', body: 'Scheduled milestones and transparent, fixed costing.' },
 ];
 
+// ── Annual Maintenance Contracts (AMC) ─────────────────────────────────────
+export const amc = {
+  h1: 'Annual Maintenance Contracts for Sports Facilities',
+  metaTitle: 'Annual Maintenance Contract (AMC) for Sports Facilities in India | AV Sports',
+  metaDescription:
+    'Annual Maintenance Contracts (AMC) for football turf, courts, running tracks, sports flooring and swimming pools across India — scheduled visits, inspections, grooming, repairs and performance reporting.',
+  intro:
+    'An AMC keeps your surface playing like new, year after year. We put a scheduled, documented upkeep plan behind every turf, court, track, floor and pool — regular grooming and inspections, preventive repairs and priority call-outs — so your facility stays safe, true to spec and ready for play, whether we built it or not.',
+  // Tiers are described by scope only — pricing is quoted per site after a survey.
+  plans: [
+    {
+      name: 'Essential AMC',
+      tag: 'Scheduled upkeep',
+      body: 'Routine, calendar-based care that protects your surface and warranty with regular visits.',
+      includes: [
+        'Quarterly scheduled maintenance visits',
+        'Surface cleaning & debris clearing',
+        'Infill top-up & grooming (turf)',
+        'Visual inspection & condition report',
+        'Email/WhatsApp support',
+      ],
+    },
+    {
+      name: 'Preventive AMC',
+      tag: 'Most chosen',
+      body: 'Frequent preventive care that catches wear early and keeps performance consistent all season.',
+      includes: [
+        'Bi-monthly scheduled visits',
+        'Everything in Essential',
+        'Line re-marking & minor re-coating touch-ups',
+        'Drainage clearing & net/fence checks',
+        'Floodlight & fixture inspection',
+        'Priority response for issues',
+      ],
+    },
+    {
+      name: 'Comprehensive AMC',
+      tag: 'Full cover',
+      body: 'End-to-end cover for high-use facilities — maximum uptime with repairs and parts handled for you.',
+      includes: [
+        'Monthly scheduled visits',
+        'Everything in Preventive',
+        'Covered repairs & seam/panel fixes',
+        'Re-coating & resurfacing planning',
+        'Fastest priority call-out SLA',
+        'Annual performance & safety audit',
+      ],
+    },
+  ],
+  // What's covered, by surface type
+  coverage: [
+    { icon: 'football', title: 'Football & multi-sport turf', points: ['Infill top-up & redistribution', 'Power brushing & grooming', 'Seam & panel repairs', 'Line & marking touch-ups'] },
+    { icon: 'court', title: 'Acrylic & hard courts', points: ['Crack & blister repair', 'Re-coating & re-lining', 'Surface cleaning & de-mossing', 'Net posts & fittings'] },
+    { icon: 'track', title: 'Running tracks (EPDM)', points: ['Lane re-marking', 'Patch repairs & re-bonding', 'Surface cleaning', 'Drainage edge checks'] },
+    { icon: 'flooring', title: 'Indoor sports flooring', points: ['Deep cleaning & polishing', 'Board/tile replacement', 'Game-line re-marking', 'Sub-floor checks'] },
+    { icon: 'pool', title: 'Swimming pools', points: ['Water balancing & treatment', 'Filtration & pump servicing', 'Tiling & grout checks', 'Deck & drainage upkeep'] },
+    { icon: 'bolt', title: 'Fencing, nets & lighting', points: ['Fence & gate repairs', 'Net replacement', 'Floodlight servicing', 'Electrical safety checks'] },
+  ],
+  // Included in every AMC tier
+  included: [
+    'Scheduled, calendar-based visits',
+    'Documented inspection reports',
+    'Trained in-house maintenance crews',
+    'Genuine, warranty-safe materials',
+    'Single point of accountability',
+    'Advance notice before every visit',
+  ],
+  steps: [
+    { n: '01', title: 'Site survey & audit', body: 'We assess your surface, usage and condition to scope the right plan.' },
+    { n: '02', title: 'Tailored AMC proposal', body: 'A visit schedule and inclusions matched to your facility — with a fixed, transparent quote.' },
+    { n: '03', title: 'Scheduled maintenance', body: 'Our crews carry out planned visits, with notice ahead of each one.' },
+    { n: '04', title: 'Reporting & priority support', body: 'You get a condition report after every visit and priority response between them.' },
+  ],
+  faqs: [
+    ['Do you offer AMCs for grounds you didn’t build?', 'Yes. We take on Annual Maintenance Contracts for existing turfs, courts, tracks, floors and pools — not just surfaces we installed. We start with a survey to assess condition and scope the plan.'],
+    ['What does an AMC cost?', 'Pricing depends on the surface type, size, usage and the plan you choose, so we quote it per site after a quick survey. Share your facility details and we’ll return a tailored AMC proposal.'],
+    ['How often will you visit?', 'It depends on the tier — quarterly for Essential, bi-monthly for Preventive and monthly for Comprehensive — plus priority call-outs between scheduled visits on the higher tiers.'],
+    ['Does an AMC protect my warranty?', 'Yes. Regular, documented maintenance with warranty-safe materials helps keep your surface within its warranty terms and extends its playable life.'],
+    ['Can we customise the plan?', 'Absolutely. The three tiers are starting points — we tailor the visit frequency and inclusions to how your facility is actually used.'],
+    ['Which cities do you cover?', 'We service facilities in Mumbai and across India, supported by our branch offices in Vasai, Rewa, Banaras and Guwahati.'],
+  ],
+} as const;
+
 export const mainNav: NavItem[] = [
   {
     label: 'Services',
@@ -544,8 +627,8 @@ export const mainNav: NavItem[] = [
     children: solutions.map((s) => ({ label: s.title, href: `/solutions/${s.slug}` })),
   },
   { label: 'Projects', href: '/projects' },
+  { label: 'AMC', href: '/amc' },
   { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Home', href: '/', icon: 'home' },
   { label: 'Contact', href: '/contact', icon: 'phone' },
 ];

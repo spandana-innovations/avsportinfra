@@ -1,0 +1,256 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import CTABand from '../components/CTABand.astro';
+import RemoteImage from '../components/RemoteImage.astro';
+import { amc, whatsappLink } from '../data/site';
+import { u } from '../data/images';
+
+const imgs = ['1549896869-ca27eeffe4fb', '1602357280104-742c517a1d82', '1522947961977-67fe74257c16'];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: amc.faqs.map(([q, a]) => ({
+    '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: amc.h1,
+  serviceType: 'Annual Maintenance Contract',
+  provider: { '@id': 'https://www.avsportsinfrastructure.com/#organization' },
+  areaServed: 'IN',
+  description: amc.metaDescription,
+};
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.avsportsinfrastructure.com/' },
+    { '@type': 'ListItem', position: 2, name: 'AMC', item: 'https://www.avsportsinfrastructure.com/amc' },
+  ],
+};
+---
+<Base
+  title={amc.metaTitle}
+  description={amc.metaDescription}
+  path="/amc"
+  jsonLd={[serviceLd, faqLd, breadcrumb]}
+>
+  <!-- Hero -->
+  <section class="amc-hero">
+    <div class="amc-hero-bg" aria-hidden="true"><img class="hero-fade" src={u(imgs[0], 1600, 700)} alt="" /><div class="hero-glow"></div></div>
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span> <span class="current">AMC</span>
+      </nav>
+      <span class="eyebrow light" data-reveal>Annual Maintenance Contracts</span>
+      <h1 class="h-display" data-reveal data-delay="1">{amc.h1}</h1>
+      <p class="lead" data-reveal data-delay="2">{amc.intro}</p>
+      <div class="amc-cta" data-reveal data-delay="3">
+        <a href="/contact" class="btn btn-primary btn-lg">Request an AMC Proposal</a>
+        <a href={whatsappLink('AMC enquiry — ')} class="btn btn-ghost btn-lg" target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included in every AMC -->
+  <section class="section">
+    <div class="container">
+      <div class="lead-row">
+        <div>
+          <p class="eyebrow" data-reveal>Why an AMC</p>
+          <h2 class="section-title" data-reveal>Keep every surface playing like new</h2>
+          <p class="section-sub" data-reveal>Sports surfaces are a serious investment — and they last far longer with planned care. An AMC replaces ad-hoc fixes with a documented schedule, so wear is caught early, performance stays consistent and your warranty is protected.</p>
+        </div>
+      </div>
+      <ul class="incl-grid" data-reveal>
+        {amc.included.map((item) => (
+          <li><Icon name="check" size={18} /> {item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Plans (no pricing) -->
+  <section class="section plans-section">
+    <div class="container">
+      <p class="eyebrow center" data-reveal>AMC Plans</p>
+      <h2 class="section-title center" data-reveal>Three levels of cover</h2>
+      <p class="section-sub center" data-reveal>Each plan is a starting point — we tailor the visit schedule and inclusions to how your facility is used. Pricing is quoted per site after a quick survey.</p>
+      <div class="plans">
+        {amc.plans.map((plan, i) => (
+          <article class={`plan ${i === 1 ? 'featured' : ''}`} data-reveal data-delay={i}>
+            {i === 1 && <span class="plan-flag">{plan.tag}</span>}
+            {i !== 1 && <span class="plan-tag">{plan.tag}</span>}
+            <h3>{plan.name}</h3>
+            <p class="plan-body">{plan.body}</p>
+            <ul>
+              {plan.includes.map((inc) => (
+                <li><Icon name="check" size={16} /> {inc}</li>
+              ))}
+            </ul>
+            <a href="/contact" class={`btn ${i === 1 ? 'btn-primary' : 'btn-outline'}`}>Get this plan quoted</a>
+          </article>
+        ))}
+      </div>
+      <p class="plans-note" data-reveal>Every plan includes documented reports and warranty-safe materials. Need something in between? We’ll build a custom schedule around your usage.</p>
+    </div>
+  </section>
+
+  <!-- Coverage by surface -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow center" data-reveal>Scope of Work</p>
+      <h2 class="section-title center" data-reveal>What we maintain</h2>
+      <p class="section-sub center" data-reveal>One accountable team across every surface in your facility.</p>
+      <div class="cov-grid">
+        {amc.coverage.map((c, i) => (
+          <article class="cov-card" data-reveal data-delay={i % 3}>
+            <span class="icon-badge"><Icon name={c.icon} size={24} /></span>
+            <h3>{c.title}</h3>
+            <ul>
+              {c.points.map((p) => <li><Icon name="check" size={15} /> {p}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="proc-wrap">
+        <div class="proc-copy">
+          <p class="eyebrow" data-reveal>How It Works</p>
+          <h2 class="section-title" data-reveal>From survey to year-round support</h2>
+          <ol class="proc-steps">
+            {amc.steps.map((s) => (
+              <li data-reveal>
+                <span class="proc-n">{s.n}</span>
+                <div>
+                  <h3>{s.title}</h3>
+                  <p>{s.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="proc-media" data-reveal>
+          <RemoteImage id={imgs[1]} alt="AV Sports maintenance crew servicing a sports surface" w={620} h={720} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section faq-section">
+    <div class="container narrow">
+      <p class="eyebrow center" data-reveal>AMC FAQs</p>
+      <h2 class="section-title center" data-reveal>Common questions</h2>
+      <div class="faqs" data-reveal>
+        {amc.faqs.map(([q, a]) => (
+          <details class="faq">
+            <summary>{q}<Icon name="chevron" size={18} /></summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Protect your investment with an AMC."
+    sub="Tell us your surface, size and usage — we’ll return a tailored maintenance plan and a fixed quote."
+    prefill="AMC enquiry — "
+  />
+</Base>
+
+<style>
+  /* Hero */
+  .amc-hero { position: relative; overflow: hidden; padding-block: clamp(2.6rem, 6vw, 4.5rem); color: #fff; }
+  .amc-hero-bg { position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--forest) 0%, var(--forest-700) 60%, #0a5027 100%); }
+  :root[data-theme='dark'] .amc-hero-bg { background: linear-gradient(135deg, #021a0c, #073018 60%, #0a4020); }
+  .amc-hero .hero-fade { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.18; mix-blend-mode: luminosity; }
+  .amc-hero .hero-glow { position: absolute; width: 480px; height: 480px; right: -120px; top: -160px; background: radial-gradient(circle, rgba(68,192,26,0.4), transparent 62%); filter: blur(14px); }
+  .crumbs { font-size: 0.85rem; color: #bfdcc5; margin-bottom: 1.4rem; }
+  .crumbs a:hover { color: var(--grass-300); }
+  .crumbs .current { color: #fff; }
+  .amc-hero .eyebrow.light { color: var(--grass-300); }
+  .amc-hero h1 { color: #fff; margin: 0.6rem 0 1rem; max-width: 20ch; }
+  .amc-hero .lead { color: #d7ecdb; max-width: 64ch; margin-bottom: 1.6rem; }
+  .amc-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .amc-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.35); }
+  .amc-cta .btn-ghost:hover { background: rgba(68,192,26,0.16); border-color: var(--grass); }
+
+  .section-sub { color: var(--text-soft); max-width: 62ch; line-height: 1.7; margin-top: 0.6rem; }
+  .section-sub.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .eyebrow.center { text-align: center; }
+  .section-title.center { text-align: center; }
+  .narrow { max-width: 820px; }
+
+  /* Included grid */
+  .incl-grid { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem 1.6rem; }
+  .incl-grid li { display: flex; align-items: center; gap: 0.6rem; color: var(--text-soft); font-weight: 500; }
+  .incl-grid :global(svg) { color: var(--grass-600); flex-shrink: 0; }
+  :root[data-theme='dark'] .incl-grid :global(svg) { color: var(--grass-300); }
+  @media (max-width: 760px) { .incl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .incl-grid { grid-template-columns: 1fr; } }
+
+  /* Plans */
+  .plans-section { background: var(--surface-2); }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 2.4rem; align-items: start; }
+  .plan { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem 1.6rem; box-shadow: var(--shadow); display: flex; flex-direction: column; height: 100%; }
+  .plan.featured { border-color: var(--grass); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+  @media (max-width: 860px) { .plan.featured { transform: none; } }
+  .plan-tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 700; }
+  .plan-flag { position: absolute; top: -12px; left: 1.6rem; background: var(--grass); color: var(--forest-900); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.7rem; border-radius: 999px; }
+  .plan h3 { margin: 0.5rem 0 0.5rem; font-size: 1.3rem; }
+  .plan-body { color: var(--text-soft); font-size: 0.93rem; line-height: 1.6; margin-bottom: 1.1rem; }
+  .plan ul { list-style: none; padding: 0; margin: 0 0 1.4rem; display: grid; gap: 0.6rem; flex: 1; }
+  .plan ul li { display: flex; align-items: flex-start; gap: 0.55rem; color: var(--text-soft); font-size: 0.92rem; line-height: 1.45; }
+  .plan ul :global(svg) { color: var(--grass-600); flex-shrink: 0; margin-top: 2px; }
+  :root[data-theme='dark'] .plan ul :global(svg) { color: var(--grass-300); }
+  .plan .btn { width: 100%; justify-content: center; }
+  .btn-outline { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+  .btn-outline:hover { border-color: var(--grass); color: var(--grass-600); }
+  :root[data-theme='dark'] .btn-outline:hover { color: var(--grass-300); }
+  .plans-note { text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 1.8rem; max-width: 60ch; margin-left: auto; margin-right: auto; }
+  @media (max-width: 860px) { .plans { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
+
+  /* Coverage */
+  .cov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.4rem; }
+  .cov-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; transition: border-color 0.25s, transform 0.25s; }
+  .cov-card:hover { border-color: color-mix(in srgb, var(--grass) 45%, var(--border)); transform: translateY(-4px); }
+  .cov-card h3 { font-size: 1.1rem; margin: 0.9rem 0 0.8rem; }
+  .cov-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  .cov-card ul li { display: flex; align-items: flex-start; gap: 0.5rem; color: var(--text-soft); font-size: 0.9rem; }
+  .cov-card ul :global(svg) { color: var(--grass-600); flex-shrink: 0; margin-top: 3px; }
+  :root[data-theme='dark'] .cov-card ul :global(svg) { color: var(--grass-300); }
+  @media (max-width: 860px) { .cov-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .cov-grid { grid-template-columns: 1fr; } }
+
+  /* Process */
+  .process-section { background: var(--surface-2); }
+  .proc-wrap { display: grid; grid-template-columns: 1fr 0.8fr; gap: clamp(1.6rem, 4vw, 3.4rem); align-items: center; }
+  .proc-steps { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; gap: 1.4rem; }
+  .proc-steps li { display: flex; gap: 1.1rem; align-items: flex-start; }
+  .proc-n { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--forest-900); background: var(--grass); width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex-shrink: 0; }
+  .proc-steps h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+  .proc-steps p { color: var(--text-soft); font-size: 0.94rem; line-height: 1.6; }
+  .proc-media { height: 100%; min-height: 360px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+  @media (max-width: 860px) { .proc-wrap { grid-template-columns: 1fr; } .proc-media { min-height: 280px; } }
+
+  /* FAQs */
+  .faqs { display: grid; gap: 0.7rem; margin-top: 2rem; }
+  .faq { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 1.2rem; transition: border-color 0.25s; }
+  .faq[open] { border-color: color-mix(in srgb, var(--grass) 50%, var(--border)); }
+  .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 0; font-weight: 600; cursor: pointer; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary :global(svg) { transition: transform 0.25s; color: var(--grass-600); flex-shrink: 0; }
+  .faq[open] summary :global(svg) { transform: rotate(180deg); }
+  .faq p { padding: 0 0 1.1rem; color: var(--text-soft); line-height: 1.6; }
+</style>

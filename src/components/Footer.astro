@@ -18,10 +18,11 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <div class="foot-col">
+      <div class="foot-col foot-services">
         <h4>Services</h4>
         <ul>
           {services.map((s) => <li><a href={`/services/${s.slug}`}>{s.navTitle}</a></li>)}
+          <li><a href="/amc">Annual Maintenance (AMC)</a></li>
         </ul>
       </div>
 
@@ -68,13 +69,17 @@ const year = new Date().getFullYear();
 <style>
   .site-footer { background: var(--forest-900); color: #d9e7dc; padding-top: clamp(3rem, 6vw, 5rem); margin-top: 2rem; }
   :root[data-theme='dark'] .site-footer { background: #021509; border-top: 1px solid var(--border); }
-  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: clamp(1.6rem, 3vw, 2.5rem); padding-bottom: 2.6rem; }
+  .foot-grid { display: grid; grid-template-columns: 1.5fr 2fr 1fr 1.4fr; gap: clamp(1.6rem, 3vw, 2.5rem); padding-bottom: 2.6rem; }
   .foot-brand p { color: #a9bfae; font-size: 0.95rem; margin: 1rem 0 1.2rem; max-width: 34ch; }
   .socials { display: flex; gap: 0.6rem; }
   .socials a { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: rgba(255,255,255,0.06); color: #cfe0d2; transition: background 0.25s, color 0.25s, transform 0.25s; }
   .socials a:hover { background: var(--grass); color: var(--forest-900); transform: translateY(-2px); }
   .foot-col h4 { color: #fff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; font-family: var(--font-display); }
   .foot-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
+  /* Services split into two balanced sub-columns so the list isn't one tall strip */
+  .foot-services ul { grid-template-columns: 1fr 1fr; column-gap: 1.4rem; row-gap: 0.55rem; }
+  .foot-services li { min-width: 0; }
+  @media (max-width: 560px) { .foot-services ul { grid-template-columns: 1fr; } }
   .foot-col a, .foot-contact span { color: #a9bfae; font-size: 0.93rem; transition: color 0.2s; }
   .foot-col a:hover { color: var(--grass-300); }
   .foot-contact ul li { display: flex; align-items: center; gap: 0.5rem; }
