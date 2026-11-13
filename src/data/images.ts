@@ -7,7 +7,7 @@
 /**
  * Self-hosted, pre-optimised WebP images in /public/img.
  * Two responsive widths are generated per photo id: 640 and 1280.
- * The `h`/`q` params are kept for call-site compatibility but are unused —
+ * The `h`/`q` params are kept for call-site compatibility but are unused, 
  * each image is served at its natural aspect and cropped by the container
  * (object-fit: cover).
  */

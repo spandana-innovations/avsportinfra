@@ -37,7 +37,7 @@ export const contacts = [
 // Branch offices
 export const branches = ['Vasai', 'Rewa (MP)', 'Banaras (UP)', 'Guwahati'];
 
-// Analytics & verification — fill these in to switch them on.
+// Analytics & verification, fill these in to switch them on.
 export const analytics = {
   ga4: '',             // GA4 Measurement ID, e.g. 'G-XXXXXXXXXX'
   gscVerification: '', // Google Search Console meta-tag token
@@ -61,11 +61,11 @@ export const services = [
     keyword: 'Football Turf Construction Company',
     icon: 'football',
     intro:
-      'We supply and install professional artificial football turf — from 5-a-side and 7-a-side pitches to full 9 and 11-a-side grounds — built to FIFA Quality and Quality Pro benchmarks. Every pitch starts with an engineered base and sub-surface drainage, then a UV-stable 40–60 mm monofilament turf with performance infill for consistent ball roll, grip and player safety. We deliver it turnkey, or supply FIFA-grade turf for your own installation.',
+      'We supply and install professional artificial football turf, from 5-a-side and 7-a-side pitches to full 9 and 11-a-side grounds, built to FIFA Quality and Quality Pro benchmarks. Every pitch starts with an engineered base and sub-surface drainage, then a UV-stable 40–60 mm monofilament turf with performance infill for consistent ball roll, grip and player safety. We deliver it turnkey, or supply FIFA-grade turf for your own installation.',
     body: [
       'As an established <strong>Football Turf Construction Company</strong>, AV Sports and Infrastructure delivers <strong>Artificial Football Turf Installation</strong> and complete <strong>Football Ground Construction</strong> across India. Whether you need a compact <strong>5 A Side Football Turf Construction</strong>, a <strong>7 A Side Football Ground Construction</strong>, a <strong>9 A Side Football Ground Construction</strong> or a full <strong>11 A Side Football Ground Construction</strong>, we build to <strong>FIFA Standard Football Turf Construction</strong> and <strong>FIFA Quality Pro Football Turf</strong> benchmarks, delivering <strong>FIFA Standard Football Turf Installation</strong> nationwide.',
-      'We are experienced <strong>Football Ground Contractors in India</strong> and <strong>Football Ground Construction Contractors</strong>, handling <strong>Synthetic Football Turf Installation</strong>, <strong>Artificial Football Turf Construction</strong> and the <strong>Football Ground Drainage System</strong> beneath it — including <strong>Football Turf Civil Work</strong>, <strong>WMM base</strong> and <strong>Football Ground Drainage</strong>. Searching for <strong>Football Turf Manufacturers in India</strong> or <strong>Artificial Football Grass Suppliers</strong>? As a supplier and installer we source FIFA-grade turf from established manufacturers and fit it as one accountable <strong>Football Ground Construction Company India</strong>.',
-      'Every quotation is itemised — share your plot and we will return the <strong>Football Turf Construction Cost</strong> (<strong>Football Turf Construction Cost in India</strong>) for your site. We also handle <strong>Football Field Design and Construction</strong>, <strong>Football Turf Design and Installation</strong>, and the full <strong>Football Turf Base Drainage Nets and Lighting</strong> package, using <strong>Artificial Grass for Sports Grounds</strong> to <strong>FIFA Grade Football Turf Installation</strong> standards. We build <strong>Turf for Schools and Clubs</strong> — <strong>Football Turf for Schools and Clubs</strong> and <strong>Football Turf for Builders</strong> — as part of our <strong>India Turf Construction</strong> and <strong>Football Turf Construction India</strong> work, and as a <strong>football ground construction contractor</strong> for institutions and developers.',
+      'We are experienced <strong>Football Ground Contractors in India</strong> and <strong>Football Ground Construction Contractors</strong>, handling <strong>Synthetic Football Turf Installation</strong>, <strong>Artificial Football Turf Construction</strong> and the <strong>Football Ground Drainage System</strong> beneath it, including <strong>Football Turf Civil Work</strong>, <strong>WMM base</strong> and <strong>Football Ground Drainage</strong>. Searching for <strong>Football Turf Manufacturers in India</strong> or <strong>Artificial Football Grass Suppliers</strong>? As a supplier and installer we source FIFA-grade turf from established manufacturers and fit it as one accountable <strong>Football Ground Construction Company India</strong>.',
+      'Every quotation is itemised, share your plot and we will return the <strong>Football Turf Construction Cost</strong> (<strong>Football Turf Construction Cost in India</strong>) for your site. We also handle <strong>Football Field Design and Construction</strong>, <strong>Football Turf Design and Installation</strong>, and the full <strong>Football Turf Base Drainage Nets and Lighting</strong> package, using <strong>Artificial Grass for Sports Grounds</strong> to <strong>FIFA Grade Football Turf Installation</strong> standards. We build <strong>Turf for Schools and Clubs</strong>, <strong>Football Turf for Schools and Clubs</strong> and <strong>Football Turf for Builders</strong>, as part of our <strong>India Turf Construction</strong> and <strong>Football Turf Construction India</strong> work, and as a <strong>football ground construction contractor</strong> for institutions and developers.',
     ],
     specs: [
       '40–60 mm monofilament turf (50 mm FIFA-grade supply)',
@@ -76,12 +76,12 @@ export const services = [
       'Fencing, floodlighting & line markings',
     ],
     faqs: [
-      ['Do you supply turf as well as install it?', 'Yes — we supply FIFA-grade artificial football turf and install it turnkey (base, drainage, fencing and lighting), or supply the turf for your own team.'],
+      ['Do you supply turf as well as install it?', 'Yes, we supply FIFA-grade artificial football turf and install it turnkey (base, drainage, fencing and lighting), or supply the turf for your own team.'],
       ['How much does football turf cost in India?', 'Cost depends on size, turf grade, base condition and drainage. Share your dimensions and we’ll return a fixed quote.'],
       ['How long does installation take?', 'A standard 5-a-side turf is typically 3–6 weeks; full grounds take longer depending on civil work.'],
       ['Is it built to FIFA standards?', 'We build to FIFA Quality / Quality Pro specifications. We do not claim formal FIFA certification unless a project is independently tested and certified.'],
-      ['Do you build 5, 7, 9 and 11-a-side grounds?', 'Yes — 5 A Side Football Turf Construction, 7 A Side Football Ground Construction, 9 A Side Football Ground Construction and 11 A Side Football Ground Construction, each sized to your plot.'],
-      ['Are you football ground contractors in India?', 'Yes — we are Football Ground Contractors in India and Football Ground Construction Contractors, delivering Football Field Design and Construction nationwide.'],
+      ['Do you build 5, 7, 9 and 11-a-side grounds?', 'Yes, 5 A Side Football Turf Construction, 7 A Side Football Ground Construction, 9 A Side Football Ground Construction and 11 A Side Football Ground Construction, each sized to your plot.'],
+      ['Are you football ground contractors in India?', 'Yes, we are Football Ground Contractors in India and Football Ground Construction Contractors, delivering Football Field Design and Construction nationwide.'],
     ],
   },
   {
@@ -92,15 +92,15 @@ export const services = [
     short: 'FIFA-grade turf supplied and installed, turnkey.',
     metaTitle: 'Football Turf Supplier in India | Supply & Installation',
     metaDescription:
-      'Football turf supplier in India — FIFA-grade artificial football turf supplied and installed. 50mm turf, shock pad, base, drainage, fencing & floodlights. Mumbai & PAN-India.',
+      'Football turf supplier in India, FIFA-grade artificial football turf supplied and installed. 50mm turf, shock pad, base, drainage, fencing & floodlights. Mumbai & PAN-India.',
     keyword: 'Football Turf Supplier',
     icon: 'football',
     intro:
-      'As a football turf supplier and installer, we provide FIFA-grade artificial football turf and fit it turnkey — or supply the material for your own team. From 40–60 mm monofilament to 50 mm FIFA-grade turf with a shock pad, we handle the base, drainage, fencing and floodlighting so you deal with one accountable partner.',
+      'As a football turf supplier and installer, we provide FIFA-grade artificial football turf and fit it turnkey, or supply the material for your own team. From 40–60 mm monofilament to 50 mm FIFA-grade turf with a shock pad, we handle the base, drainage, fencing and floodlighting so you deal with one accountable partner.',
     body: [
-      'AV Sports and Infrastructure is a <strong>Football Turf Supplier</strong> and <strong>Football Turf Installation Company</strong> serving Mumbai and PAN-India. As a <strong>Football Turf Supplier in India</strong> we handle <strong>Football Turf Installation</strong> end to end: the <strong>Football Turf Base and Drainage Construction</strong>, the surfacing, and <strong>Football Ground Floodlight Installation</strong> — complete <strong>Turnkey Football Turf Construction</strong>.',
+      'AV Sports and Infrastructure is a <strong>Football Turf Supplier</strong> and <strong>Football Turf Installation Company</strong> serving Mumbai and PAN-India. As a <strong>Football Turf Supplier in India</strong> we handle <strong>Football Turf Installation</strong> end to end: the <strong>Football Turf Base and Drainage Construction</strong>, the surfacing, and <strong>Football Ground Floodlight Installation</strong>, complete <strong>Turnkey Football Turf Construction</strong>.',
       'We work as an <strong>Artificial Football Turf Supplier</strong>, <strong>Artificial Grass Supplier in India</strong>, <strong>Football Turf Grass Supplier</strong> and <strong>Synthetic Football Grass Supplier</strong>, offering a <strong>50mm Football Turf Supplier</strong> option and acting as your <strong>Football Turf Material Supplier</strong> and <strong>Sports Artificial Grass Supplier</strong>. Every system can be built <strong>Football Turf with Shock Pad</strong> for FIFA Quality Pro feel. We are also recognised among <strong>Football Turf Suppliers in India</strong> and <strong>Synthetic Football Grass Suppliers</strong> for supply-only orders.',
-      'As a <strong>Football Turf Contractor India</strong> we deliver <strong>Football Turf Installation Mumbai</strong> and act as your <strong>Football Turf Supplier Mumbai</strong> and <strong>Football Turf Supplier Maharashtra</strong>. Ask for a <strong>Football Turf Quotation</strong> and we will return your <strong>Football Turf Installation Cost India</strong> and <strong>Football Turf Construction Cost India</strong>. Looking for a <strong>Football Turf Contractor Near Me</strong> or a <strong>Football Turf Supplier Near Me</strong>? We cover Mumbai and ship turf PAN-India — and yes, we supply <strong>football turf supplier india</strong> orders to other installers too.',
+      'As a <strong>Football Turf Contractor India</strong> we deliver <strong>Football Turf Installation Mumbai</strong> and act as your <strong>Football Turf Supplier Mumbai</strong> and <strong>Football Turf Supplier Maharashtra</strong>. Ask for a <strong>Football Turf Quotation</strong> and we will return your <strong>Football Turf Installation Cost India</strong> and <strong>Football Turf Construction Cost India</strong>. Looking for a <strong>Football Turf Contractor Near Me</strong> or a <strong>Football Turf Supplier Near Me</strong>? We cover Mumbai and ship turf PAN-India, and yes, we supply <strong>football turf supplier india</strong> orders to other installers too.',
     ],
     specs: [
       'FIFA Standard Football Turf / FIFA Quality Football Turf',
@@ -111,8 +111,8 @@ export const services = [
       'Mumbai & PAN-India delivery',
     ],
     faqs: [
-      ['Are you a football turf supplier in India?', 'Yes — AV Sports is a Football Turf Supplier in India. We supply FIFA-grade turf and install it, or ship it for your own installation as an Artificial Football Turf Supplier.'],
-      ['Do you supply 50mm turf with a shock pad?', 'Yes — as a 50mm Football Turf Supplier we offer Football Turf with Shock Pad for a FIFA Quality Football Turf feel.'],
+      ['Are you a football turf supplier in India?', 'Yes, AV Sports is a Football Turf Supplier in India. We supply FIFA-grade turf and install it, or ship it for your own installation as an Artificial Football Turf Supplier.'],
+      ['Do you supply 50mm turf with a shock pad?', 'Yes, as a 50mm Football Turf Supplier we offer Football Turf with Shock Pad for a FIFA Quality Football Turf feel.'],
       ['Can I get a football turf quotation?', 'Share your size and city and we will return a Football Turf Quotation with your Football Turf Installation Cost India.'],
     ],
   },
@@ -124,13 +124,13 @@ export const services = [
     short: 'Compact 5-a-side courts for clubs, schools and rooftops.',
     metaTitle: 'Futsal Ground Construction Company in India',
     metaDescription:
-      'Professional futsal court construction — high-rebound surfaces for 5-a-side football, clubs, schools and rooftops. Turnkey builds across India.',
+      'Professional futsal court construction, high-rebound surfaces for 5-a-side football, clubs, schools and rooftops. Turnkey builds across India.',
     keyword: 'Futsal Ground Construction Company',
     icon: 'futsal',
     intro:
-      'Compact, fast and durable — our futsal courts suit clubs, schools, academies and rooftop venues. Choose a cushioned synthetic or hard-court surface with precise line markings, rebound boards and fencing, engineered for intense 5-a-side play.',
+      'Compact, fast and durable, our futsal courts suit clubs, schools, academies and rooftop venues. Choose a cushioned synthetic or hard-court surface with precise line markings, rebound boards and fencing, engineered for intense 5-a-side play.',
     body: [
-      'As a <strong>Futsal Ground Construction Company</strong> and <strong>Futsal Turf Company India</strong>, we handle <strong>Futsal Court Construction</strong> and <strong>Futsal Turf Installation</strong> for indoor and outdoor venues — <strong>Indoor Futsal Court Construction</strong> and <strong>Outdoor Futsal Ground Construction</strong> alike. As experienced <strong>Futsal Turf Contractors</strong> and <strong>futsal ground construction contractor</strong>, we also fit <strong>Futsal Ground Fencing</strong> and <strong>Futsal Ground Lighting</strong>, and deliver complete <strong>Futsal Ground Turnkey Projects</strong>. Ask us for your <strong>Futsal Ground Construction Cost</strong>.',
+      'As a <strong>Futsal Ground Construction Company</strong> and <strong>Futsal Turf Company India</strong>, we handle <strong>Futsal Court Construction</strong> and <strong>Futsal Turf Installation</strong> for indoor and outdoor venues, <strong>Indoor Futsal Court Construction</strong> and <strong>Outdoor Futsal Ground Construction</strong> alike. As experienced <strong>Futsal Turf Contractors</strong> and <strong>futsal ground construction contractor</strong>, we also fit <strong>Futsal Ground Fencing</strong> and <strong>Futsal Ground Lighting</strong>, and deliver complete <strong>Futsal Ground Turnkey Projects</strong>. Ask us for your <strong>Futsal Ground Construction Cost</strong>.',
     ],
     specs: [
       'Synthetic turf or acrylic/PU surface',
@@ -141,7 +141,7 @@ export const services = [
     ],
     faqs: [
       ['What size is a futsal court?', 'Standard play areas run roughly 25–42 m by 16–25 m; we tailor to your space.'],
-      ['Can it go on a rooftop?', 'Yes — with load assessment, waterproofing and the right base system.'],
+      ['Can it go on a rooftop?', 'Yes, with load assessment, waterproofing and the right base system.'],
     ],
   },
   {
@@ -169,7 +169,7 @@ export const services = [
       'Roll-down or fixed bays',
     ],
     faqs: [
-      ['Do you build box cricket grounds?', 'Yes — enclosed turf grounds with netting and floodlights are a core offering.'],
+      ['Do you build box cricket grounds?', 'Yes, enclosed turf grounds with netting and floodlights are a core offering.'],
       ['Can nets be installed indoors?', 'Yes, both indoor and outdoor practice-net setups are available.'],
     ],
   },
@@ -181,7 +181,7 @@ export const services = [
     short: 'Regulation pickleball courts with cushioned acrylic finish.',
     metaTitle: 'Pickleball Court Construction Company in India',
     metaDescription:
-      'Professional pickleball court construction across India — regulation dimensions, cushioned acrylic finish, expert base and markings.',
+      'Professional pickleball court construction across India, regulation dimensions, cushioned acrylic finish, expert base and markings.',
     keyword: 'Pickleball Court Construction Company',
     icon: 'court',
     intro:
@@ -191,7 +191,7 @@ export const services = [
     ],
     specs: ['Acrylic / cushioned acrylic finish', 'Laser-levelled base', 'Regulation markings', 'Net posts & fittings', 'Fencing & lighting options'],
     faqs: [
-      ['Indoor or outdoor?', 'Both — the surface system is chosen to suit.'],
+      ['Indoor or outdoor?', 'Both, the surface system is chosen to suit.'],
       ['How long does a court take?', 'Most single courts are 2–4 weeks after base readiness.'],
     ],
   },
@@ -203,7 +203,7 @@ export const services = [
     short: 'Acrylic and modular basketball courts, indoor or outdoor.',
     metaTitle: 'Basketball Court Construction in India',
     metaDescription:
-      'Professional basketball court construction across India — acrylic and modular surfaces, regulation markings, hoops and floodlighting.',
+      'Professional basketball court construction across India, acrylic and modular surfaces, regulation markings, hoops and floodlighting.',
     keyword: 'Basketball Court Construction',
     icon: 'court',
     intro:
@@ -213,7 +213,7 @@ export const services = [
     ],
     specs: ['Acrylic or modular tile surface', 'Anti-slip multi-coat finish', 'Laser-levelled base', 'Regulation markings', 'Hoops, posts & fittings'],
     faqs: [
-      ['Indoor or outdoor?', 'Both — we specify the surface accordingly.'],
+      ['Indoor or outdoor?', 'Both, we specify the surface accordingly.'],
       ['Half or full court?', 'We build both, to the space and budget.'],
     ],
   },
@@ -225,7 +225,7 @@ export const services = [
     short: 'Synthetic and acrylic tennis courts to ITF pace ratings.',
     metaTitle: 'Tennis Court Construction Company in India',
     metaDescription:
-      'Professional tennis court construction across India — acrylic and synthetic surfaces to ITF pace ratings, with base, markings and fencing.',
+      'Professional tennis court construction across India, acrylic and synthetic surfaces to ITF pace ratings, with base, markings and fencing.',
     keyword: 'Tennis Court Construction Company',
     icon: 'court',
     intro:
@@ -236,7 +236,7 @@ export const services = [
     specs: ['Acrylic / synthetic / cushioned options', 'ITF pace rating', 'Laser-levelled base', 'Net posts & fittings', 'Fencing & lighting'],
     faqs: [
       ['Which surface should I choose?', 'We advise by level of play, climate and budget.'],
-      ['Can you resurface an old court?', 'Yes — resurfacing and re-lining are part of our services.'],
+      ['Can you resurface an old court?', 'Yes, resurfacing and re-lining are part of our services.'],
     ],
   },
   {
@@ -247,7 +247,7 @@ export const services = [
     short: 'Synthetic and wooden badminton flooring systems.',
     metaTitle: 'Badminton Court Construction in India',
     metaDescription:
-      'Badminton court construction across India — synthetic and wooden sprung flooring, regulation markings, indoor and outdoor builds.',
+      'Badminton court construction across India, synthetic and wooden sprung flooring, regulation markings, indoor and outdoor builds.',
     keyword: 'Badminton Court Construction',
     icon: 'court',
     intro:
@@ -269,15 +269,15 @@ export const services = [
     short: 'Indoor and outdoor volleyball courts built to regulation.',
     metaTitle: 'Volleyball Court Construction Company in India',
     metaDescription:
-      'Volleyball court construction across India — indoor and outdoor, regulation dimensions, synthetic or acrylic surfacing, posts, nets and markings.',
+      'Volleyball court construction across India, indoor and outdoor, regulation dimensions, synthetic or acrylic surfacing, posts, nets and markings.',
     keyword: 'Volleyball Court Construction',
     icon: 'volleyball',
     intro:
-      'We build regulation volleyball courts — indoor halls and outdoor courts — on an engineered base with synthetic or acrylic surfacing, correct markings, posts and nets. Durable, true-bounce surfaces for schools, clubs and academies.',
+      'We build regulation volleyball courts, indoor halls and outdoor courts, on an engineered base with synthetic or acrylic surfacing, correct markings, posts and nets. Durable, true-bounce surfaces for schools, clubs and academies.',
     specs: ['Regulation 18 m x 9 m court + run-off', 'Synthetic / acrylic / cushioned surface', 'Shock-absorbing base', 'Posts, nets & antennae', 'Indoor or outdoor build'],
     faqs: [
-      ['Indoor or outdoor?', 'Both — the surface and base are specified to suit.'],
-      ['Can you add it to a multi-sport layout?', 'Yes — volleyball is a common inclusion in multi-sport courts and complexes.'],
+      ['Indoor or outdoor?', 'Both, the surface and base are specified to suit.'],
+      ['Can you add it to a multi-sport layout?', 'Yes, volleyball is a common inclusion in multi-sport courts and complexes.'],
     ],
   },
   {
@@ -285,21 +285,21 @@ export const services = [
     title: 'Multi-Sport Courts',
     navTitle: 'Multi-Sport Courts',
     h1: 'Multi-Sport Court Construction',
-    short: 'One court, many sports — flexible markings and surfacing.',
+    short: 'One court, many sports, flexible markings and surfacing.',
     metaTitle: 'Multi-Sport Court Construction in India',
     metaDescription:
-      'Multi-sport court construction across India — a single surface marked and equipped for basketball, volleyball, badminton, tennis and more. Space-smart and cost-efficient.',
+      'Multi-sport court construction across India, a single surface marked and equipped for basketball, volleyball, badminton, tennis and more. Space-smart and cost-efficient.',
     keyword: 'Multi Sports Court Construction',
     icon: 'multisport',
     intro:
-      'A multi-sport court packs several games into one surface — basketball, volleyball, badminton, tennis and more — with multi-coloured markings and shared fencing and lighting. It is the space-smart, cost-efficient choice for schools, societies and community grounds.',
+      'A multi-sport court packs several games into one surface, basketball, volleyball, badminton, tennis and more, with multi-coloured markings and shared fencing and lighting. It is the space-smart, cost-efficient choice for schools, societies and community grounds.',
     body: [
       'Our <strong>Multi Sports Court Construction</strong> combines several games on a single engineered surface. It is a cost-efficient way for schools and societies to offer basketball, volleyball, badminton and tennis without building separate courts.',
     ],
     specs: ['Acrylic / synthetic multi-game surface', 'Multi-colour overlaid markings', 'Shared posts & convertible nets', 'Laser-levelled base', 'Fencing & floodlighting options'],
     faqs: [
-      ['How many sports on one court?', 'Commonly basketball + volleyball + badminton, tennis where space allows — we plan the markings to your mix.'],
-      ['Is it harder to maintain?', 'No — it is one surface; the overlaid markings are hard-wearing acrylic.'],
+      ['How many sports on one court?', 'Commonly basketball + volleyball + badminton, tennis where space allows, we plan the markings to your mix.'],
+      ['Is it harder to maintain?', 'No, it is one surface; the overlaid markings are hard-wearing acrylic.'],
     ],
   },
   {
@@ -310,13 +310,13 @@ export const services = [
     short: 'Synthetic athletic tracks and seamless EPDM flooring.',
     metaTitle: 'Synthetic Running Track & EPDM Flooring Contractor in India',
     metaDescription:
-      'Synthetic running track construction and EPDM sports flooring across India — athletic tracks, play areas and gym surfaces. Seamless, UV-stable, certified.',
+      'Synthetic running track construction and EPDM sports flooring across India, athletic tracks, play areas and gym surfaces. Seamless, UV-stable, certified.',
     keyword: 'Synthetic Running Track Construction',
     icon: 'track',
     intro:
-      'We construct synthetic athletic tracks for schools, stadiums and academies — full 400 m tracks, practice straights and training ovals — built to World Athletics-aligned specifications. Choose an EPDM sandwich system or a full-pour polyurethane (PU) track: shock-absorbing, slip-resistant, UV-stable and weatherproof.',
+      'We construct synthetic athletic tracks for schools, stadiums and academies, full 400 m tracks, practice straights and training ovals, built to World Athletics-aligned specifications. Choose an EPDM sandwich system or a full-pour polyurethane (PU) track: shock-absorbing, slip-resistant, UV-stable and weatherproof.',
     body: [
-      'As a <strong>Synthetic Running Track Construction</strong> specialist and <strong>Running Track Construction Company</strong> (and <strong>Running Track Construction Company India</strong>), we deliver <strong>400 Meter Running Track Construction</strong> and <strong>400m Athletic Track Construction</strong> as an <strong>Athletic Track Construction Company</strong>. Our systems include <strong>EPDM Running Track Installation</strong>, the <strong>13mm EPDM Sandwich System</strong>, the <strong>15mm EPDM Running Track</strong>, <strong>Polyurethane Running Track</strong> and full <strong>Synthetic Athletic Track Flooring</strong> — a <strong>Sandwich System Running Track</strong> or a <strong>Polyurethane Running Track Installation</strong>, each to <strong>World Athletics Standard Running Track</strong> specs.',
+      'As a <strong>Synthetic Running Track Construction</strong> specialist and <strong>Running Track Construction Company</strong> (and <strong>Running Track Construction Company India</strong>), we deliver <strong>400 Meter Running Track Construction</strong> and <strong>400m Athletic Track Construction</strong> as an <strong>Athletic Track Construction Company</strong>. Our systems include <strong>EPDM Running Track Installation</strong>, the <strong>13mm EPDM Sandwich System</strong>, the <strong>15mm EPDM Running Track</strong>, <strong>Polyurethane Running Track</strong> and full <strong>Synthetic Athletic Track Flooring</strong>, a <strong>Sandwich System Running Track</strong> or a <strong>Polyurethane Running Track Installation</strong>, each to <strong>World Athletics Standard Running Track</strong> specs.',
       'We are <strong>Running Track Contractors in India</strong>, <strong>EPDM running track contractor</strong> and <strong>synthetic running track contractor</strong> teams delivering <strong>Synthetic Athletic Track Construction</strong> and <strong>EPDM Running Track Construction</strong>, plus the <strong>Sports Track Drainage System</strong> beneath. We also handle <strong>Running Track Resurfacing</strong> as <strong>Running Track Resurfacing Contractors</strong>, and act as <strong>Athletic Track Flooring Suppliers</strong>. Ask for your <strong>Running Track Construction Cost India</strong>.',
     ],
     specs: [
@@ -329,8 +329,8 @@ export const services = [
     ],
     faqs: [
       ['What’s the difference between EPDM and PU?', 'EPDM is the coloured rubber top layer; PU is the binder / full-pour system. A 13 mm EPDM sandwich suits schools and practice; full-pour PU suits heavy and competition use.'],
-      ['Do you build full 400 m tracks?', 'Yes — from practice straights to full multi-lane 400 m athletic tracks, to World Athletics-aligned specs.'],
-      ['Can you resurface an existing track?', 'Yes — resurfacing and re-lining of worn synthetic tracks is part of our service.'],
+      ['Do you build full 400 m tracks?', 'Yes, from practice straights to full multi-lane 400 m athletic tracks, to World Athletics-aligned specs.'],
+      ['Can you resurface an existing track?', 'Yes, resurfacing and re-lining of worn synthetic tracks is part of our service.'],
     ],
   },
   {
@@ -341,14 +341,14 @@ export const services = [
     short: 'Synthetic, rubber, acrylic and interlocking tile flooring.',
     metaTitle: 'Sports Flooring Company in India | EPDM, PU & Acrylic',
     metaDescription:
-      'Sports flooring across India — EPDM rubber, PU, acrylic and synthetic surfaces, interlocking modular tiles, SBR and turf-protection tiles. Indoor and outdoor, supplied and installed.',
+      'Sports flooring across India, EPDM rubber, PU, acrylic and synthetic surfaces, interlocking modular tiles, SBR and turf-protection tiles. Indoor and outdoor, supplied and installed.',
     keyword: 'Sports Flooring Company in India',
     icon: 'flooring',
     intro:
-      'From seamless EPDM rubber and poured polyurethane to acrylic court coatings and interlocking modular tiles, we supply and install the right sports floor for the surface and the sport. Indoor or outdoor, we also fit SBR play surfaces and turf-protection tiles — all on a properly prepared base.',
+      'From seamless EPDM rubber and poured polyurethane to acrylic court coatings and interlocking modular tiles, we supply and install the right sports floor for the surface and the sport. Indoor or outdoor, we also fit SBR play surfaces and turf-protection tiles, all on a properly prepared base.',
     body: [
-      'As a <strong>Sports Flooring Company in India</strong> we supply and install <strong>Synthetic Sports Flooring</strong>, <strong>EPDM Rubber Flooring</strong> (<strong>EPDM Rubber Sports Flooring</strong>), <strong>PU Sports Flooring</strong> and <strong>Acrylic Sports Flooring</strong> — a complete <strong>Synthetic Sports Flooring Company</strong> service. We are <strong>Indoor Sports Flooring Contractors</strong> and provide <strong>Outdoor Sports Flooring</strong>, <strong>Acrylic Sports Court Flooring</strong>, <strong>Multi Purpose Sports Flooring</strong> and <strong>Multi Purpose Sports Court Flooring</strong>.',
-      'Our team handles <strong>Sports Flooring Installation</strong> as a dedicated <strong>Sports Flooring Installation Company</strong>, with <strong>PU Sports Flooring Installation</strong> and <strong>Indoor Sports Flooring Solutions</strong> to suit. We are <strong>Sports Flooring Contractors in India</strong> and <strong>Sports Flooring Contractors in Mumbai</strong> — <strong>Outdoor Sports Flooring Contractors</strong> and <strong>sports flooring contractor india</strong> — and if you are searching for <strong>Sports Flooring Manufacturers in India</strong>, we supply and install flooring sourced from established manufacturers so you deal with one accountable partner.',
+      'As a <strong>Sports Flooring Company in India</strong> we supply and install <strong>Synthetic Sports Flooring</strong>, <strong>EPDM Rubber Flooring</strong> (<strong>EPDM Rubber Sports Flooring</strong>), <strong>PU Sports Flooring</strong> and <strong>Acrylic Sports Flooring</strong>, a complete <strong>Synthetic Sports Flooring Company</strong> service. We are <strong>Indoor Sports Flooring Contractors</strong> and provide <strong>Outdoor Sports Flooring</strong>, <strong>Acrylic Sports Court Flooring</strong>, <strong>Multi Purpose Sports Flooring</strong> and <strong>Multi Purpose Sports Court Flooring</strong>.',
+      'Our team handles <strong>Sports Flooring Installation</strong> as a dedicated <strong>Sports Flooring Installation Company</strong>, with <strong>PU Sports Flooring Installation</strong> and <strong>Indoor Sports Flooring Solutions</strong> to suit. We are <strong>Sports Flooring Contractors in India</strong> and <strong>Sports Flooring Contractors in Mumbai</strong>, <strong>Outdoor Sports Flooring Contractors</strong> and <strong>sports flooring contractor india</strong>, and if you are searching for <strong>Sports Flooring Manufacturers in India</strong>, we supply and install flooring sourced from established manufacturers so you deal with one accountable partner.',
     ],
     specs: [
       'EPDM rubber & PU sports flooring',
@@ -359,9 +359,9 @@ export const services = [
       'Anti-slip, shock-absorbing, UV-stable',
     ],
     faqs: [
-      ['Which flooring should I choose?', 'It depends on the sport, indoor vs outdoor, foot traffic and budget — we specify EPDM, PU, acrylic or modular tiles to suit.'],
-      ['Do you supply and install?', 'Yes — we supply the material and install it on a prepared base, as a turnkey floor.'],
-      ['Are modular tiles good for rooftops?', 'Yes — interlocking tiles are quick to lay and ideal for rooftops and existing hard bases.'],
+      ['Which flooring should I choose?', 'It depends on the sport, indoor vs outdoor, foot traffic and budget, we specify EPDM, PU, acrylic or modular tiles to suit.'],
+      ['Do you supply and install?', 'Yes, we supply the material and install it on a prepared base, as a turnkey floor.'],
+      ['Are modular tiles good for rooftops?', 'Yes, interlocking tiles are quick to lay and ideal for rooftops and existing hard bases.'],
     ],
   },
   {
@@ -372,11 +372,11 @@ export const services = [
     short: 'Olympic and mini-Olympic training pools, built end to end.',
     metaTitle: 'Swimming Pool Construction Company in India',
     metaDescription:
-      'Olympic size and mini-Olympic training swimming pool construction across India — turnkey from design to handover. Competition lanes, filtration and finishing.',
+      'Olympic size and mini-Olympic training swimming pool construction across India, turnkey from design to handover. Competition lanes, filtration and finishing.',
     keyword: 'Swimming Pool Construction Company',
     icon: 'pool',
     intro:
-      'From a full 50 m Olympic pool to a 25 m mini-Olympic trainer, we build the whole thing — nothing outsourced, nothing left half-finished. We cast the watertight shell, size the filtration and circulation to the water, then finish with tiling, competition lane markings, starting blocks and a safe anti-slip deck. What you get is a pool that is ready to train serious swimmers from the first length.',
+      'From a full 50 m Olympic pool to a 25 m mini-Olympic trainer, we build the whole thing, nothing outsourced, nothing left half-finished. We cast the watertight shell, size the filtration and circulation to the water, then finish with tiling, competition lane markings, starting blocks and a safe anti-slip deck. What you get is a pool that is ready to train serious swimmers from the first length.',
     specs: [
       'Olympic (50 m) & mini-Olympic (25 m) sizes',
       'RCC / shotcrete pool shell',
@@ -387,7 +387,7 @@ export const services = [
     ],
     faqs: [
       ['What pool sizes do you build?', 'Full Olympic (50 m, typically 8–10 lanes) and mini / semi-Olympic (25 m) training pools, sized to your site and purpose.'],
-      ['Is it a complete, turnkey build?', 'Yes — 0 to 100%: structure, plumbing, filtration, tiling, lane markings, deck and handover under one contract.'],
+      ['Is it a complete, turnkey build?', 'Yes, 0 to 100%: structure, plumbing, filtration, tiling, lane markings, deck and handover under one contract.'],
       ['Indoor or outdoor pools?', 'Both. We advise on structure, filtration and finishing to suit the location and usage.'],
     ],
   },
@@ -415,7 +415,7 @@ export const services = [
       'Poles, mounts & wiring',
     ],
     faqs: [
-      ['Can you light an existing ground?', 'Yes — we retrofit LED floodlighting with a proper lux design.'],
+      ['Can you light an existing ground?', 'Yes, we retrofit LED floodlighting with a proper lux design.'],
       ['Will drainage fix waterlogging?', 'A correctly engineered sub-surface system clears water fast; we assess your site first.'],
     ],
   },
@@ -427,11 +427,11 @@ export const services = [
     short: 'The groundwork a good surface stands on.',
     metaTitle: 'Sports Ground Civil Works & Base Preparation Contractor',
     metaDescription:
-      'Sports ground civil construction across India — excavation, earthwork, leveling, WMM base, sub-base and field drainage. The engineered groundwork every turf and track needs.',
+      'Sports ground civil construction across India, excavation, earthwork, leveling, WMM base, sub-base and field drainage. The engineered groundwork every turf and track needs.',
     keyword: 'Sports Ground Civil Construction',
     icon: 'civil',
     intro:
-      'Every great surface starts underground. We handle the civil works that make a ground last — excavation and earthwork, cut-and-fill leveling, a compacted sub-base and WMM (wet-mix-macadam) base, and the sub-surface drainage that keeps it playable through the monsoon. Get this right and the turf, court or track above it performs for years.',
+      'Every great surface starts underground. We handle the civil works that make a ground last, excavation and earthwork, cut-and-fill leveling, a compacted sub-base and WMM (wet-mix-macadam) base, and the sub-surface drainage that keeps it playable through the monsoon. Get this right and the turf, court or track above it performs for years.',
     body: [
       'Our <strong>Sports Ground Civil Construction</strong> covers <strong>Sports Ground Base Preparation</strong>, <strong>Sports Ground Earthwork</strong>, <strong>Football Ground Leveling Work</strong> and <strong>Sports Ground Sub Base Construction</strong>, including <strong>WMM Base Construction for Football Turf</strong> and full <strong>Sports Field Drainage Construction</strong>. It is the engineered groundwork every turf, court and track depends on.',
     ],
@@ -445,7 +445,7 @@ export const services = [
     ],
     faqs: [
       ['Why does base preparation matter so much?', 'An uneven or poorly drained base causes dips, waterlogging and premature surface failure. The base is what the warranty really rests on.'],
-      ['Do you do only the civil works?', 'Yes — we can deliver the civil and base package alone, or as part of a turnkey build.'],
+      ['Do you do only the civil works?', 'Yes, we can deliver the civil and base package alone, or as part of a turnkey build.'],
     ],
   },
   {
@@ -456,13 +456,13 @@ export const services = [
     short: 'Complete sports complexes, single point of accountability.',
     metaTitle: 'Turnkey Sports Infrastructure Contractor in India',
     metaDescription:
-      'End-to-end sports infrastructure — design, civil work, surfacing, drainage, fencing & lighting for complete complexes. One contract, one accountable team.',
+      'End-to-end sports infrastructure, design, civil work, surfacing, drainage, fencing & lighting for complete complexes. One contract, one accountable team.',
     keyword: 'Turnkey Sports Infrastructure Contractor',
     icon: 'layers',
     intro:
-      'For multi-sport complexes, academies and institutions, we deliver the entire facility under one contract — feasibility and design, civil and earthworks, surfacing for every sport, drainage, fencing, lighting and handover. One point of accountability, one timeline, one quality standard.',
+      'For multi-sport complexes, academies and institutions, we deliver the entire facility under one contract, feasibility and design, civil and earthworks, surfacing for every sport, drainage, fencing, lighting and handover. One point of accountability, one timeline, one quality standard.',
     body: [
-      'We deliver <strong>Turnkey Sports Infrastructure Solutions</strong> as a <strong>turnkey sports infrastructure company</strong> and <strong>Sports Complex Construction Company</strong> — <strong>Turnkey Sports Ground Construction</strong> from design to handover. As a <strong>sports complex construction contractor</strong> we take on <strong>University Sports Complex Construction</strong>, <strong>School Sports Infrastructure Development</strong> and, with the right partners, <strong>Stadium Construction Contractors India</strong> projects.',
+      'We deliver <strong>Turnkey Sports Infrastructure Solutions</strong> as a <strong>turnkey sports infrastructure company</strong> and <strong>Sports Complex Construction Company</strong>, <strong>Turnkey Sports Ground Construction</strong> from design to handover. As a <strong>sports complex construction contractor</strong> we take on <strong>University Sports Complex Construction</strong>, <strong>School Sports Infrastructure Development</strong> and, with the right partners, <strong>Stadium Construction Contractors India</strong> projects.',
     ],
     specs: [
       'Feasibility & design',
@@ -474,7 +474,7 @@ export const services = [
     ],
     faqs: [
       ['Who is turnkey for?', 'Schools, universities, academies, townships, corporates and government projects.'],
-      ['Do you manage the whole project?', 'Yes — one team is accountable from survey to handover.'],
+      ['Do you manage the whole project?', 'Yes, one team is accountable from survey to handover.'],
     ],
   },
   {
@@ -485,18 +485,18 @@ export const services = [
     short: 'Keep your surface playing like new, season after season.',
     metaTitle: 'Sports Ground Maintenance Services in India',
     metaDescription:
-      'Sports ground maintenance services across India — turf grooming and infill top-up, court re-coating, track and flooring care, drainage clearing and repairs.',
+      'Sports ground maintenance services across India, turf grooming and infill top-up, court re-coating, track and flooring care, drainage clearing and repairs.',
     keyword: 'Sports Ground Maintenance Services',
     icon: 'shield',
     intro:
-      'A surface is an investment — and it lasts far longer with care. Our maintenance keeps turfs, courts, tracks and flooring playing true: infill top-up and grooming, re-lining and re-coating, drainage clearing, and prompt repairs.',
+      'A surface is an investment, and it lasts far longer with care. Our maintenance keeps turfs, courts, tracks and flooring playing true: infill top-up and grooming, re-lining and re-coating, drainage clearing, and prompt repairs.',
     body: [
-      'Our <strong>Sports Ground Maintenance Services</strong> cover artificial turf grooming and infill top-up, acrylic court re-coating and re-lining, running-track and sports-flooring care, and drainage clearing. Regular maintenance protects performance, safety and the warranty on your surface — whether we built it or not.',
+      'Our <strong>Sports Ground Maintenance Services</strong> cover artificial turf grooming and infill top-up, acrylic court re-coating and re-lining, running-track and sports-flooring care, and drainage clearing. Regular maintenance protects performance, safety and the warranty on your surface, whether we built it or not.',
     ],
     specs: ['Turf grooming & infill top-up', 'Court re-coating & re-lining', 'Track & flooring care', 'Drainage clearing', 'Repairs & touch-ups', 'Annual maintenance contracts'],
     faqs: [
-      ['Do you maintain grounds you didn’t build?', 'Yes — we offer Sports Ground Maintenance Services for existing turfs, courts and tracks, not just our own installations.'],
-      ['Can we set up an annual contract?', 'Yes — scheduled annual maintenance keeps the surface playing well and catches small issues early.'],
+      ['Do you maintain grounds you didn’t build?', 'Yes, we offer Sports Ground Maintenance Services for existing turfs, courts and tracks, not just our own installations.'],
+      ['Can we set up an annual contract?', 'Yes, scheduled annual maintenance keeps the surface playing well and catches small issues early.'],
     ],
   },
 ] as const;
@@ -526,7 +526,7 @@ export const stats = [
 ];
 
 export const whyUs = [
-  { title: 'FIFA-standard engineering', body: 'Surfaces built to published performance specs — never shortcuts.' },
+  { title: 'FIFA-standard engineering', body: 'Surfaces built to published performance specs, never shortcuts.' },
   { title: 'Single-point turnkey delivery', body: 'Civil, drainage, surfacing, fencing and lighting under one contract.' },
   { title: 'Warranty-backed materials', body: 'UV-stable turf, certified infill and tested base layers.' },
   { title: 'On-time handover', body: 'Scheduled milestones and transparent, fixed costing.' },
@@ -537,10 +537,10 @@ export const amc = {
   h1: 'Annual Maintenance Contracts for Sports Facilities',
   metaTitle: 'Annual Maintenance Contract (AMC) for Sports Facilities in India | AV Sports',
   metaDescription:
-    'Annual Maintenance Contracts (AMC) for football turf, courts, running tracks, sports flooring and swimming pools across India — scheduled visits, inspections, grooming, repairs and performance reporting.',
+    'Annual Maintenance Contracts (AMC) for football turf, courts, running tracks, sports flooring and swimming pools across India, scheduled visits, inspections, grooming, repairs and performance reporting.',
   intro:
-    'An AMC keeps your surface playing like new, year after year. We put a scheduled, documented upkeep plan behind every turf, court, track, floor and pool — regular grooming and inspections, preventive repairs and priority call-outs — so your facility stays safe, true to spec and ready for play, whether we built it or not.',
-  // Tiers are described by scope only — pricing is quoted per site after a survey.
+    'An AMC keeps your surface playing like new, year after year. We put a scheduled, documented upkeep plan behind every turf, court, track, floor and pool, regular grooming and inspections, preventive repairs and priority call-outs, so your facility stays safe, true to spec and ready for play, whether we built it or not.',
+  // Tiers are described by scope only, pricing is quoted per site after a survey.
   plans: [
     {
       name: 'Essential AMC',
@@ -570,7 +570,7 @@ export const amc = {
     {
       name: 'Comprehensive AMC',
       tag: 'Full cover',
-      body: 'End-to-end cover for high-use facilities — maximum uptime with repairs and parts handled for you.',
+      body: 'End-to-end cover for high-use facilities, maximum uptime with repairs and parts handled for you.',
       includes: [
         'Monthly scheduled visits',
         'Everything in Preventive',
@@ -601,16 +601,16 @@ export const amc = {
   ],
   steps: [
     { n: '01', title: 'Site survey & audit', body: 'We assess your surface, usage and condition to scope the right plan.' },
-    { n: '02', title: 'Tailored AMC proposal', body: 'A visit schedule and inclusions matched to your facility — with a fixed, transparent quote.' },
+    { n: '02', title: 'Tailored AMC proposal', body: 'A visit schedule and inclusions matched to your facility, with a fixed, transparent quote.' },
     { n: '03', title: 'Scheduled maintenance', body: 'Our crews carry out planned visits, with notice ahead of each one.' },
     { n: '04', title: 'Reporting & priority support', body: 'You get a condition report after every visit and priority response between them.' },
   ],
   faqs: [
-    ['Do you offer AMCs for grounds you didn’t build?', 'Yes. We take on Annual Maintenance Contracts for existing turfs, courts, tracks, floors and pools — not just surfaces we installed. We start with a survey to assess condition and scope the plan.'],
+    ['Do you offer AMCs for grounds you didn’t build?', 'Yes. We take on Annual Maintenance Contracts for existing turfs, courts, tracks, floors and pools, not just surfaces we installed. We start with a survey to assess condition and scope the plan.'],
     ['What does an AMC cost?', 'Pricing depends on the surface type, size, usage and the plan you choose, so we quote it per site after a quick survey. Share your facility details and we’ll return a tailored AMC proposal.'],
-    ['How often will you visit?', 'It depends on the tier — quarterly for Essential, bi-monthly for Preventive and monthly for Comprehensive — plus priority call-outs between scheduled visits on the higher tiers.'],
+    ['How often will you visit?', 'It depends on the tier, quarterly for Essential, bi-monthly for Preventive and monthly for Comprehensive, plus priority call-outs between scheduled visits on the higher tiers.'],
     ['Does an AMC protect my warranty?', 'Yes. Regular, documented maintenance with warranty-safe materials helps keep your surface within its warranty terms and extends its playable life.'],
-    ['Can we customise the plan?', 'Absolutely. The three tiers are starting points — we tailor the visit frequency and inclusions to how your facility is actually used.'],
+    ['Can we customise the plan?', 'Absolutely. The three tiers are starting points, we tailor the visit frequency and inclusions to how your facility is actually used.'],
     ['Which cities do you cover?', 'We service facilities in Mumbai and across India, supported by our branch offices in Vasai, Rewa, Banaras and Guwahati.'],
   ],
 } as const;
@@ -639,20 +639,20 @@ export const mainNav: NavItem[] = [
 export interface Location { slug: string; city: string; region: string; blurb: string; }
 
 export const locations: Location[] = [
-  { slug: 'mumbai', city: 'Mumbai', region: 'Maharashtra', blurb: 'Our home turf. AV Sports is based in Mumbai (Masjid), and we build football turfs, courts, running tracks and complete sports facilities right across the city and MMR — from school grounds to rooftop arenas.' },
-  { slug: 'maharashtra', city: 'Maharashtra', region: 'India', blurb: 'From Mumbai and Pune to Nagpur, we deliver sports infrastructure across Maharashtra — turfs, courts, athletic tracks and turnkey complexes, with a local base and statewide reach.' },
-  { slug: 'pune', city: 'Pune', region: 'Maharashtra', blurb: "Pune's academies, schools and clubs are building serious sports facilities — and we construct them, from FIFA-standard football turf to EPDM running tracks and multi-sport courts." },
-  { slug: 'delhi', city: 'Delhi NCR', region: 'India', blurb: "We bring turnkey sports infrastructure to Delhi NCR — football turfs, courts, running tracks and sports flooring, engineered for the capital's schools, clubs and residential projects." },
+  { slug: 'mumbai', city: 'Mumbai', region: 'Maharashtra', blurb: 'Our home turf. AV Sports is based in Mumbai (Masjid), and we build football turfs, courts, running tracks and complete sports facilities right across the city and MMR, from school grounds to rooftop arenas.' },
+  { slug: 'maharashtra', city: 'Maharashtra', region: 'India', blurb: 'From Mumbai and Pune to Nagpur, we deliver sports infrastructure across Maharashtra, turfs, courts, athletic tracks and turnkey complexes, with a local base and statewide reach.' },
+  { slug: 'pune', city: 'Pune', region: 'Maharashtra', blurb: "Pune's academies, schools and clubs are building serious sports facilities, and we construct them, from FIFA-standard football turf to EPDM running tracks and multi-sport courts." },
+  { slug: 'delhi', city: 'Delhi NCR', region: 'India', blurb: "We bring turnkey sports infrastructure to Delhi NCR, football turfs, courts, running tracks and sports flooring, engineered for the capital's schools, clubs and residential projects." },
   { slug: 'bangalore', city: 'Bangalore', region: 'Karnataka', blurb: "Bangalore's sports and fitness boom needs the right surfaces. We build football turfs, pickleball and multi-sport courts, running tracks and pools across the city." },
-  { slug: 'hyderabad', city: 'Hyderabad', region: 'Telangana', blurb: 'From academy pitches to community courts, we deliver sports infrastructure across Hyderabad — turf, courts, flooring and turnkey facilities built to last.' },
-  { slug: 'chennai', city: 'Chennai', region: 'Tamil Nadu', blurb: 'We construct sports facilities across Chennai — football turfs, cricket nets, courts and athletic tracks — engineered for the coastal climate with proper drainage and UV-stable surfaces.' },
+  { slug: 'hyderabad', city: 'Hyderabad', region: 'Telangana', blurb: 'From academy pitches to community courts, we deliver sports infrastructure across Hyderabad, turf, courts, flooring and turnkey facilities built to last.' },
+  { slug: 'chennai', city: 'Chennai', region: 'Tamil Nadu', blurb: 'We construct sports facilities across Chennai, football turfs, cricket nets, courts and athletic tracks, engineered for the coastal climate with proper drainage and UV-stable surfaces.' },
   { slug: 'ahmedabad', city: 'Ahmedabad', region: 'Gujarat', blurb: "Ahmedabad's schools, societies and clubs trust engineered sports surfaces. We build turfs, courts, running tracks and sports flooring across the city." },
-  { slug: 'surat', city: 'Surat', region: 'Gujarat', blurb: 'We deliver football turfs, multi-sport courts and sports flooring across Surat — turnkey builds for schools, academies and residential projects.' },
-  { slug: 'jaipur', city: 'Jaipur', region: 'Rajasthan', blurb: "From school grounds to club courts, we construct sports infrastructure across Jaipur — turf, courts, tracks and flooring, built for the region's climate." },
-  { slug: 'lucknow', city: 'Lucknow', region: 'Uttar Pradesh', blurb: 'We bring turnkey sports facilities to Lucknow — football turfs, courts, running tracks and pools for schools, academies and communities.' },
+  { slug: 'surat', city: 'Surat', region: 'Gujarat', blurb: 'We deliver football turfs, multi-sport courts and sports flooring across Surat, turnkey builds for schools, academies and residential projects.' },
+  { slug: 'jaipur', city: 'Jaipur', region: 'Rajasthan', blurb: "From school grounds to club courts, we construct sports infrastructure across Jaipur, turf, courts, tracks and flooring, built for the region's climate." },
+  { slug: 'lucknow', city: 'Lucknow', region: 'Uttar Pradesh', blurb: 'We bring turnkey sports facilities to Lucknow, football turfs, courts, running tracks and pools for schools, academies and communities.' },
   { slug: 'kolkata', city: 'Kolkata', region: 'West Bengal', blurb: "Kolkata's clubs and schools are upgrading their grounds. We build football turfs, courts, athletic tracks and sports flooring across the city." },
-  { slug: 'nagpur', city: 'Nagpur', region: 'Maharashtra', blurb: 'In the heart of Maharashtra, we construct sports infrastructure across Nagpur — turfs, courts, tracks and turnkey complexes.' },
-  { slug: 'indore', city: 'Indore', region: 'Madhya Pradesh', blurb: 'We deliver sports facilities across Indore — football turfs, multi-sport courts, running tracks and flooring for schools, clubs and societies.' },
+  { slug: 'nagpur', city: 'Nagpur', region: 'Maharashtra', blurb: 'In the heart of Maharashtra, we construct sports infrastructure across Nagpur, turfs, courts, tracks and turnkey complexes.' },
+  { slug: 'indore', city: 'Indore', region: 'Madhya Pradesh', blurb: 'We deliver sports facilities across Indore, football turfs, multi-sport courts, running tracks and flooring for schools, clubs and societies.' },
   { slug: 'kochi', city: 'Kochi', region: 'Kerala', blurb: 'From Kochi across Kerala, we build football turfs, courts and athletic tracks engineered for the coastal, high-rainfall climate with serious drainage.' },
-  { slug: 'north-east-india', city: 'North East India', region: 'India', blurb: "Backed by our Guwahati branch, we build sports infrastructure right across North East India — football turfs, multi-sport courts, running tracks, sports flooring and turnkey facilities for schools, academies, clubs and government projects in Assam, Meghalaya, Manipur, Nagaland, Tripura, Arunachal Pradesh and beyond, engineered for the region's high-rainfall climate with serious drainage." },
+  { slug: 'north-east-india', city: 'North East India', region: 'India', blurb: "Backed by our Guwahati branch, we build sports infrastructure right across North East India, football turfs, multi-sport courts, running tracks, sports flooring and turnkey facilities for schools, academies, clubs and government projects in Assam, Meghalaya, Manipur, Nagaland, Tripura, Arunachal Pradesh and beyond, engineered for the region's high-rainfall climate with serious drainage." },
 ];
