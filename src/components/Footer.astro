@@ -57,10 +57,15 @@ const year = new Date().getFullYear();
 
     <div class="foot-bottom">
       <p>© {year} {site.name}. All rights reserved.</p>
-      <div class="foot-links">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/cookies">Cookie Policy</a>
-        <a href="/sitemap-index.xml">Sitemap</a>
+      <div class="foot-end">
+        <div class="foot-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/cookies">Cookie Policy</a>
+          <a href="/sitemap-index.xml">Sitemap</a>
+        </div>
+        <a class="p2x" href="https://quantump2x.com" target="_blank" rel="noopener" aria-label="Built by Quantum P2X">
+          <img src="/brand/quantump2x.svg" alt="Quantum P2X" width="30" height="30" />
+        </a>
       </div>
     </div>
   </div>
@@ -95,6 +100,11 @@ const year = new Date().getFullYear();
   .foot-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 1.4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.86rem; color: #8ba390; }
   .foot-links { display: flex; gap: 1.2rem; }
   .foot-links a:hover { color: var(--grass-300); }
+  .foot-end { display: flex; align-items: center; gap: 1.4rem; }
+  .p2x { display: inline-flex; opacity: 0.6; transition: opacity 0.25s; line-height: 0; }
+  .p2x:hover { opacity: 1; }
+  .p2x img { display: block; width: 30px; height: 30px; max-width: none; }
+  @media (max-width: 480px) { .foot-end { width: 100%; justify-content: space-between; } }
   @media (max-width: 920px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
   @media (max-width: 560px) { .foot-grid { grid-template-columns: 1fr; } }
 </style>
