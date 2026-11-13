@@ -654,4 +654,5 @@ export const locations: Location[] = [
   { slug: 'nagpur', city: 'Nagpur', region: 'Maharashtra', blurb: 'In the heart of Maharashtra, we construct sports infrastructure across Nagpur — turfs, courts, tracks and turnkey complexes.' },
   { slug: 'indore', city: 'Indore', region: 'Madhya Pradesh', blurb: 'We deliver sports facilities across Indore — football turfs, multi-sport courts, running tracks and flooring for schools, clubs and societies.' },
   { slug: 'kochi', city: 'Kochi', region: 'Kerala', blurb: 'From Kochi across Kerala, we build football turfs, courts and athletic tracks engineered for the coastal, high-rainfall climate with serious drainage.' },
+  { slug: 'north-east-india', city: 'North East India', region: 'India', blurb: "Backed by our Guwahati branch, we build sports infrastructure right across North East India — football turfs, multi-sport courts, running tracks, sports flooring and turnkey facilities for schools, academies, clubs and government projects in Assam, Meghalaya, Manipur, Nagaland, Tripura, Arunachal Pradesh and beyond, engineered for the region's high-rainfall climate with serious drainage." },
 ];
